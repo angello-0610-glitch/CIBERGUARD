@@ -3492,3 +3492,123 @@ main .cta-section {
 html {
     scroll-behavior: smooth;
 }
+/* =================================
+   CIBERGUARD — OPTIMIZACIÓN MÓVIL
+================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding-left: 0 !important;
+        overflow-x: hidden;
+    }
+
+    .header {
+        position: sticky !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 1000;
+    }
+
+    .navbar.container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 18px;
+    }
+
+    .navbar .logo {
+        order: 0;
+        margin: 0;
+        font-size: 19px;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        order: 1;
+    }
+
+    /* CONTROLES SUPERIORES */
+    .navbar .account-actions {
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 9px;
+        width: 100%;
+        margin: 0;
+        padding: 10px 0 0;
+    }
+
+    .account-actions .profile-button {
+        display: none !important;
+    }
+
+    .account-actions .theme-toggle {
+        width: 43px;
+        height: 43px;
+        min-height: 43px;
+    }
+
+    .account-actions #loginButton {
+        min-height: 43px;
+        flex: 1;
+    }
+
+    .account-actions .account-avatar-button {
+        width: 43px;
+        height: 43px;
+        min-height: 43px;
+    }
+
+    .account-actions [hidden] {
+        display: none !important;
+    }
+
+    /* DESCARGA */
+    .navbar > .download-button {
+        order: 3;
+        display: flex !important;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+    }
+
+    /* MENÚ DESPLEGABLE */
+    .navbar .nav-links {
+        order: 4;
+        display: none !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        width: 100%;
+        margin: 0;
+        padding: 12px;
+        background: var(--app-card);
+        border: 1px solid var(--app-border);
+        border-radius: 15px;
+    }
+
+    .navbar .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 13px 15px;
+        text-align: left;
+        border-radius: 10px;
+    }
+
+    main,
+    .footer {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+}
