@@ -158,7 +158,7 @@
 
  
 
- 
+    <button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Cerrar menú"></button>
 
  
 
@@ -2402,9 +2402,9 @@
 
     document.addEventListener("DOMContentLoaded", () => {
 
-        const secciones = {
+        const views = {
 
-            inicio: [".hero", ".stats-section", ".cta-section", ".download-section"],
+            inicio: [".hero", ".stats-section", ".cta-section"],
 
             aprendizaje: ["#aprendizaje", "#contenido"],
 
@@ -2420,51 +2420,121 @@
 
  
 
-        const elementos = [...document.querySelectorAll(".hero, .stats-section, .section, .cta-section, .download-section")];
+        const viewElements = [
+
+            ...document.querySelectorAll(
+
+                "main > .hero, main > .stats-section, main > .section, main > .cta-section"
+
+            )
+
+        ];
 
  
 
-        function mostrarSeccion(nombre) {
+        const nav = document.getElementById("navLinks");
 
-            const visibles = secciones[nombre] || secciones.inicio;
+        const toggle = document.getElementById("menuToggle");
 
-            elementos.forEach(elemento => elemento.classList.add("vista-oculta"));
+        const backdrop = document.getElementById("sidebarBackdrop");
 
-            visibles.forEach(selector => document.querySelectorAll(selector).forEach(elemento => elemento.classList.remove("vista-oculta")));
+ 
 
-            document.querySelectorAll(".sidebar-navigation a").forEach(enlace => {
+        function closeSidebar() {
 
-                enlace.classList.toggle("nav-activo", enlace.getAttribute("href") === "#" + nombre);
+            nav?.classList.remove("active");
 
-            });
+            backdrop?.classList.remove("active");
 
-            document.getElementById("navLinks")?.classList.remove("active");
+            toggle?.setAttribute("aria-expanded", "false");
 
-            const toggle = document.getElementById("menuToggle");
+            const icon = toggle?.querySelector("i");
 
-            if (toggle) { toggle.setAttribute("aria-expanded", "false"); toggle.querySelector("i")?.classList.replace("fa-xmark", "fa-bars"); }
-
-            window.scrollTo({ top: 0, behavior: "instant" });
+            if (icon) icon.className = "fa-solid fa-bars";
 
         }
 
  
 
-        document.querySelectorAll('a[href^="#"]').forEach(enlace => {
+        function showView(name) {
 
-            enlace.addEventListener("click", evento => {
+            const selected = views[name] || views.inicio;
 
-                const destino = enlace.getAttribute("href").substring(1);
+ 
 
-                if (secciones[destino]) { evento.preventDefault(); mostrarSeccion(destino); }
+            viewElements.forEach(element => element.classList.add("vista-oculta"));
 
-                else if (destino === "contenido") { evento.preventDefault(); mostrarSeccion("aprendizaje"); }
+            selected.forEach(selector => {
+
+                document.querySelectorAll(selector).forEach(element => {
+
+                    element.classList.remove("vista-oculta");
+
+                });
+
+            });
+
+ 
+
+            document.querySelectorAll(".sidebar-navigation a").forEach(link => {
+
+                link.classList.toggle("nav-activo", link.getAttribute("href") === "#" + name);
+
+            });
+
+ 
+
+            closeSidebar();
+
+            window.scrollTo({ top: 0, behavior: "auto" });
+
+        }
+
+ 
+
+        document.querySelectorAll(".sidebar-navigation a[href^='#']").forEach(link => {
+
+            link.addEventListener("click", event => {
+
+                const name = link.getAttribute("href").slice(1);
+
+                if (!views[name]) return;
+
+                event.preventDefault();
+
+                showView(name);
 
             });
 
         });
 
-        mostrarSeccion("inicio");
+ 
+
+        document.querySelectorAll("[data-go]").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const name = button.getAttribute("data-go");
+
+                if (views[name]) showView(name);
+
+            });
+
+        });
+
+ 
+
+        backdrop?.addEventListener("click", closeSidebar);
+
+        document.addEventListener("keydown", event => {
+
+            if (event.key === "Escape") closeSidebar();
+
+        });
+
+ 
+
+        showView("inicio");
 
     });
 

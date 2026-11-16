@@ -192,29 +192,51 @@ function showMessage(element, message, color = "") {
 
  
 
+const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
+ 
+
+function closeMobileSidebar() {
+
+    navLinks?.classList.remove("active");
+
+    sidebarBackdrop?.classList.remove("active");
+
+    menuToggle?.setAttribute("aria-expanded", "false");
+
+ 
+
+    const icon = menuToggle?.querySelector("i");
+
+    if (icon) icon.className = "fa-solid fa-bars";
+
+}
+
+ 
+
 if (menuToggle && navLinks) {
 
     menuToggle.addEventListener("click", () => {
 
-        navLinks.classList.toggle("active");
+        const willOpen = !navLinks.classList.contains("active");
 
-        menuToggle.setAttribute("aria-expanded", navLinks.classList.contains("active") ? "true" : "false");
+ 
+
+        navLinks.classList.toggle("active", willOpen);
+
+        sidebarBackdrop?.classList.toggle("active", willOpen);
+
+        menuToggle.setAttribute("aria-expanded", String(willOpen));
 
  
 
         const icon = menuToggle.querySelector("i");
 
- 
+        if (icon) icon.className = willOpen
 
-        if (icon) {
+            ? "fa-solid fa-xmark"
 
-            icon.className = navLinks.classList.contains("active")
-
-                ? "fa-solid fa-xmark"
-
-                : "fa-solid fa-bars";
-
-        }
+            : "fa-solid fa-bars";
 
     });
 
@@ -224,23 +246,21 @@ if (menuToggle && navLinks) {
 
         link.addEventListener("click", () => {
 
-            navLinks.classList.remove("active");
+            if (link.getAttribute("href")?.startsWith("#")) {
 
-            menuToggle.setAttribute("aria-expanded", "false");
-
- 
-
-            const icon = menuToggle.querySelector("i");
-
- 
-
-            if (icon) {
-
-                icon.className = "fa-solid fa-bars";
+                closeMobileSidebar();
 
             }
 
         });
+
+    });
+
+ 
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") closeMobileSidebar();
 
     });
 
