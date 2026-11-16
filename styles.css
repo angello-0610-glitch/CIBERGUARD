@@ -1,3614 +1,10183 @@
 /* ======================================================
+
+ 
+
    CIBERGUARD - HOJA DE ESTILOS PRINCIPAL
+
+ 
+
    Diseño adaptable para PC, tablets y celulares
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 /* 1. VARIABLES GENERALES */
 
+ 
+
+ 
+
+ 
+
 :root {
+
+ 
+
     --bg: #0B1220;
+
+ 
+
     --bg-secondary: #101B2D;
+
+ 
+
     --surface: #14243B;
+
+ 
+
     --surface-light: #1A2E49;
+
+ 
+
     --turquoise: #00C2A8;
+
+ 
+
     --blue: #397BFA;
+
+ 
+
     --white: #F4F7FB;
+
+ 
+
     --muted: #A5B4C8;
+
+ 
+
     --border: rgba(165, 180, 200, 0.14);
+
+ 
+
     --gradient: linear-gradient(120deg, #00C2A8, #397BFA);
+
+ 
+
     --success: #22C55E;
+
+ 
+
     --danger: #FF6464;
+
+ 
+
     --warning: #FBBF24;
+
+ 
+
     --shadow: 0 18px 45px rgba(0, 0, 0, .25);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 2. CONFIGURACIÓN GENERAL */
 
+ 
+
+ 
+
+ 
+
 * {
+
+ 
+
     margin: 0;
+
+ 
+
     padding: 0;
+
+ 
+
     box-sizing: border-box;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 html {
+
+ 
+
     scroll-behavior: smooth;
+
+ 
+
     scroll-padding-top: 90px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body {
+
+ 
+
     font-family: "Inter", sans-serif;
+
+ 
+
     background: var(--bg);
+
+ 
+
     color: var(--white);
+
+ 
+
     line-height: 1.6;
+
+ 
+
     overflow-x: hidden;
-    transition: background .25s, color .25s;
+
+ 
+
+    transition: *background* .25s, color .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 button,
+
+ 
+
 input,
+
+ 
+
 select,
+
+ 
+
 textarea {
+
+ 
+
     font: inherit;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 button {
+
+ 
+
     cursor: pointer;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 button:disabled {
+
+ 
+
     opacity: .6;
+
+ 
+
     cursor: not-allowed;
+
+ 
+
     transform: none !important;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 a {
+
+ 
+
     color: inherit;
+
+ 
+
     text-decoration: none;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 img {
+
+ 
+
     display: block;
+
+ 
+
     max-width: 100%;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 [hidden] {
+
+ 
+
     display: none !important;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .container {
+
+ 
+
     width: min(1160px, 90%);
+
+ 
+
     margin: 0 auto;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 3. ENCABEZADO Y NAVEGACIÓN */
 
+ 
+
+ 
+
+ 
+
 .header {
+
+ 
+
     position: sticky;
+
+ 
+
     top: 0;
+
+ 
+
     z-index: 100;
+
+ 
+
     background: rgba(11, 18, 32, .96);
+
+ 
+
     backdrop-filter: blur(18px);
+
+ 
+
     border-bottom: 1px solid var(--border);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .navbar {
+
+ 
+
     min-height: 78px;
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: space-between;
+
+ 
+
     gap: 20px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .logo {
+
+ 
+
     display: inline-flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 10px;
+
+ 
+
     font-size: 21px;
+
+ 
+
     font-weight: 800;
+
+ 
+
     letter-spacing: 1px;
+
+ 
+
     white-space: nowrap;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .logo > span:last-child > span {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .logo-icon {
+
+ 
+
     width: 39px;
+
+ 
+
     height: 39px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     background: var(--gradient);
+
+ 
+
     color: white;
+
+ 
+
     border-radius: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .logo-icon i {
+
+ 
+
     color: white;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .nav-links {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 23px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .nav-links a {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: 600;
+
+ 
+
     transition: color .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .nav-links a:hover {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-actions {
+
+ 
+
     position: relative;
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 9px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-button {
+
+ 
+
     padding: 10px 13px;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: transparent;
+
+ 
+
     border: 1px solid var(--turquoise);
+
+ 
+
     border-radius: 9px;
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: 600;
+
+ 
+
     transition: .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-button:hover {
+
+ 
+
     background: rgba(0, 194, 168, .12);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .theme-toggle {
+
+ 
+
     width: 39px;
+
+ 
+
     height: 39px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: transparent;
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 9px;
+
+ 
+
     transition: .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .theme-toggle:hover {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .menu-toggle {
+
+ 
+
     display: none;
+
+ 
+
     border: 0;
+
+ 
+
     background: transparent;
+
+ 
+
     color: var(--white);
+
+ 
+
     font-size: 23px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 4. BOTONES GENERALES */
 
+ 
+
+ 
+
+ 
+
 .btn {
+
+ 
+
     min-height: 46px;
+
+ 
+
     display: inline-flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: center;
+
+ 
+
     gap: 10px;
+
+ 
+
     padding: 12px 20px;
+
+ 
+
     border-radius: 9px;
+
+ 
+
     font-size: 13px;
+
+ 
+
     font-weight: 700;
+
+ 
+
     border: 1px solid transparent;
-    transition: transform .25s, background .25s, border-color .25s;
+
+ 
+
+    transition: transform .25s, *background* .25s, border-color .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .btn:hover {
+
+ 
+
     transform: translateY(-3px);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .btn-primary {
+
+ 
+
     background: var(--gradient);
+
+ 
+
     color: white;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .btn-outline {
+
+ 
+
     border-color: var(--border);
+
+ 
+
     color: var(--white);
+
+ 
+
     background: transparent;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .btn-outline:hover {
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
     background: rgba(0, 194, 168, .08);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .btn-light {
+
+ 
+
     flex-shrink: 0;
+
+ 
+
     color: #0B1220;
+
+ 
+
     background: white;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 button:focus-visible,
+
+ 
+
 a:focus-visible,
+
+ 
+
 input:focus-visible,
+
+ 
+
 select:focus-visible,
+
+ 
+
 textarea:focus-visible {
+
+ 
+
     outline: 2px solid var(--turquoise);
+
+ 
+
     outline-offset: 3px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 5. SECCIONES Y TÍTULOS */
 
+ 
+
+ 
+
+ 
+
 .section {
+
+ 
+
     padding: 95px 0;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .section-tag {
+
+ 
+
     display: inline-flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 8px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 11px;
+
+ 
+
     font-weight: 800;
+
+ 
+
     letter-spacing: 1.6px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .section-heading {
+
+ 
+
     max-width: 680px;
+
+ 
+
     margin: 0 auto 48px;
+
+ 
+
     text-align: center;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .section-heading h2,
+
+ 
+
 .about-text h2 {
+
+ 
+
     margin: 13px 0;
+
+ 
+
     font-size: clamp(27px, 4vw, 39px);
+
+ 
+
     line-height: 1.2;
+
+ 
+
     letter-spacing: -1.2px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .section-heading h2 span,
+
+ 
+
 .about-text h2 span {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .section-heading p {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 14px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 6. PORTADA */
 
+ 
+
+ 
+
+ 
+
 .hero {
+
+ 
+
     position: relative;
+
+ 
+
     overflow: hidden;
+
+ 
+
     background:
+
+ 
+
         radial-gradient(ellipse at 80% 40%, rgba(57, 123, 250, .13), transparent 40%),
+
+ 
+
         radial-gradient(ellipse at 15% 70%, rgba(0, 194, 168, .08), transparent 38%),
+
+ 
+
         var(--bg);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-content {
+
+ 
+
     min-height: 610px;
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: 1.05fr .95fr;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 40px;
+
+ 
+
     padding-top: 65px;
+
+ 
+
     padding-bottom: 65px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-text {
+
+ 
+
     max-width: 580px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero h1 {
+
+ 
+
     margin: 22px 0 17px;
+
+ 
+
     font-size: clamp(43px, 5.5vw, 67px);
+
+ 
+
     line-height: 1.08;
+
+ 
+
     letter-spacing: -3px;
+
+ 
+
     font-weight: 800;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero h1 span {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-text > p {
+
+ 
+
     max-width: 500px;
+
+ 
+
     margin-bottom: 27px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-buttons {
+
+ 
+
     display: flex;
+
+ 
+
     flex-wrap: wrap;
+
+ 
+
     gap: 13px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-features {
+
+ 
+
     display: flex;
+
+ 
+
     flex-wrap: wrap;
+
+ 
+
     gap: 23px;
+
+ 
+
     margin-top: 34px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: 600;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-features div {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 8px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-features i {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .hero-visual {
+
+ 
+
     min-height: 440px;
+
+ 
+
     display: flex;
+
+ 
+
     flex-direction: column;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: center;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .security-circle {
+
+ 
+
     width: 310px;
+
+ 
+
     height: 310px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     position: relative;
+
+ 
+
     border: 1px solid rgba(0, 194, 168, .35);
+
+ 
+
     border-radius: 50%;
+
+ 
+
     background: radial-gradient(circle, rgba(0, 194, 168, .12), transparent 68%);
+
+ 
+
     animation: float 5s ease-in-out infinite;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .security-circle::before,
+
+ 
+
 .security-circle::after {
+
+ 
+
     content: "";
+
+ 
+
     position: absolute;
+
+ 
+
     border: 1px solid rgba(57, 123, 250, .22);
+
+ 
+
     border-radius: 50%;
+
+ 
+
     pointer-events: none;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .security-circle::before {
+
+ 
+
     inset: -25px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .security-circle::after {
+
+ 
+
     inset: 25px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .security-glow {
+
+ 
+
     position: absolute;
+
+ 
+
     width: 190px;
+
+ 
+
     height: 190px;
+
+ 
+
     background: rgba(0, 194, 168, .25);
+
+ 
+
     filter: blur(65px);
+
+ 
+
     border-radius: 50%;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .main-shield {
+
+ 
+
     position: relative;
+
+ 
+
     z-index: 2;
+
+ 
+
     width: 190px;
+
+ 
+
     height: 190px;
+
+ 
+
     object-fit: cover;
+
+ 
+
     border-radius: 50%;
+
+ 
+
     border: 2px solid rgba(0, 194, 168, .65);
+
+ 
+
     box-shadow: 0 0 35px rgba(0, 194, 168, .35);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .floating-icon {
+
+ 
+
     position: absolute;
+
+ 
+
     z-index: 3;
+
+ 
+
     width: 52px;
+
+ 
+
     height: 52px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid rgba(0, 194, 168, .4);
+
+ 
+
     border-radius: 15px;
+
+ 
+
     box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+
+ 
+
     font-size: 20px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .icon-one {
+
+ 
+
     top: 15px;
+
+ 
+
     left: -15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .icon-two {
+
+ 
+
     top: 50px;
+
+ 
+
     right: -35px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .icon-three {
+
+ 
+
     bottom: 5px;
+
+ 
+
     right: 5px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .security-message {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 9px;
+
+ 
+
     margin-top: 35px;
+
+ 
+
     padding: 11px 18px;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 30px;
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .security-message i {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 @keyframes float {
+
+ 
+
     0%, 100% {
+
+ 
+
         transform: translateY(0);
+
+ 
+
     }
 
+ 
+
+ 
+
+ 
+
     50% {
+
+ 
+
         transform: translateY(-12px);
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 7. ESTADÍSTICAS */
 
+ 
+
+ 
+
+ 
+
 .stats-section {
+
+ 
+
     padding: 32px 0;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border-top: 1px solid var(--border);
+
+ 
+
     border-bottom: 1px solid var(--border);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .stats-grid {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(4, 1fr);
+
+ 
+
     gap: 25px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .stat-item {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: center;
+
+ 
+
     gap: 14px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .stat-item > i {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 27px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .stat-item h3 {
+
+ 
+
     font-size: 18px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .stat-item p {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 11px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 8. BUSCADOR */
 
+ 
+
+ 
+
+ 
+
 .search-row {
+
+ 
+
     max-width: 650px;
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 13px;
+
+ 
+
     margin: 0 auto 25px;
+
+ 
+
     padding: 13px 17px;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .search-row:focus-within {
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .search-row input {
+
+ 
+
     width: 100%;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: transparent;
+
+ 
+
     border: 0;
+
+ 
+
     outline: none;
+
+ 
+
     font-size: 13px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .search-row input::placeholder {
+
+ 
+
     color: var(--muted);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .search-row i {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .search-empty {
+
+ 
+
     margin: 20px 0;
+
+ 
+
     color: var(--muted);
+
+ 
+
     text-align: center;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 9. TARJETAS EDUCATIVAS */
 
+ 
+
+ 
+
+ 
+
 .learning-grid {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(3, 1fr);
+
+ 
+
     gap: 22px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .learning-card {
+
+ 
+
     overflow: hidden;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 15px;
+
+ 
+
     transition: transform .3s, border-color .3s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .learning-card:hover {
+
+ 
+
     transform: translateY(-7px);
+
+ 
+
     border-color: rgba(0, 194, 168, .5);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .learning-card > img {
+
+ 
+
     width: 100%;
+
+ 
+
     height: 185px;
+
+ 
+
     object-fit: cover;
+
+ 
+
     transition: transform .4s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .learning-card:hover > img {
+
+ 
+
     transform: scale(1.04);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .card-content {
+
+ 
+
     padding: 22px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .card-number,
+
+ 
+
 .game-label {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 10px;
+
+ 
+
     font-weight: 800;
+
+ 
+
     letter-spacing: 1.2px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .card-content h3 {
+
+ 
+
     margin: 10px 0;
+
+ 
+
     font-size: 18px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .card-content p {
+
+ 
+
     min-height: 65px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .card-content a {
+
+ 
+
     display: inline-flex;
+
+ 
+
     gap: 9px;
+
+ 
+
     margin-top: 15px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: 700;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 10. CONTENIDO EDUCATIVO */
 
+ 
+
+ 
+
+ 
+
 .content-section,
+
+ 
+
 .games-section {
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .content-grid {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(2, 1fr);
+
+ 
+
     gap: 18px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .content-item {
+
+ 
+
     display: flex;
+
+ 
+
     gap: 19px;
+
+ 
+
     padding: 24px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 13px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .content-icon {
+
+ 
+
     flex-shrink: 0;
+
+ 
+
     width: 47px;
+
+ 
+
     height: 47px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     background: rgba(0, 194, 168, .1);
+
+ 
+
     border-radius: 12px;
+
+ 
+
     font-size: 19px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .content-item h3 {
+
+ 
+
     margin-bottom: 7px;
+
+ 
+
     font-size: 15px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .content-item p {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 11. VIDEOS */
 
+ 
+
+ 
+
+ 
+
 .video-grid {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(3, 1fr);
+
+ 
+
     gap: 22px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-card {
+
+ 
+
     overflow: hidden;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 14px;
+
+ 
+
     transition: transform .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-card:hover {
+
+ 
+
     transform: translateY(-5px);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-image {
+
+ 
+
     position: relative;
+
+ 
+
     height: 190px;
+
+ 
+
     overflow: hidden;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-image img {
+
+ 
+
     width: 100%;
+
+ 
+
     height: 100%;
+
+ 
+
     object-fit: cover;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-image::after {
+
+ 
+
     content: "";
+
+ 
+
     position: absolute;
+
+ 
+
     inset: 0;
+
+ 
+
     background: rgba(11, 18, 32, .2);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-image > span {
+
+ 
+
     position: absolute;
+
+ 
+
     z-index: 2;
+
+ 
+
     top: 50%;
+
+ 
+
     left: 50%;
+
+ 
+
     width: 48px;
+
+ 
+
     height: 48px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     transform: translate(-50%, -50%);
+
+ 
+
     color: white;
+
+ 
+
     background: var(--turquoise);
+
+ 
+
     border-radius: 50%;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-info {
+
+ 
+
     padding: 20px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .video-info h3 {
+
+ 
+
     font-size: 15px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .video-info p {
+
+ 
+
     margin-top: 6px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 12. JUEGOS */
 
+ 
+
+ 
+
+ 
+
 .games-grid {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(3, minmax(0, 1fr));
+
+ 
+
     gap: 22px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-card {
+
+ 
+
     min-width: 0;
+
+ 
+
     padding: 28px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 15px;
+
+ 
+
     transition: transform .25s, border-color .25s, box-shadow .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-card:hover {
+
+ 
+
     transform: translateY(-5px);
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
     box-shadow: 0 12px 30px rgba(0, 194, 168, .08);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-icon {
+
+ 
+
     width: 58px;
+
+ 
+
     height: 58px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     margin-bottom: 20px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     background: rgba(0, 194, 168, .12);
+
+ 
+
     border-radius: 15px;
+
+ 
+
     font-size: 24px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-card h3 {
+
+ 
+
     margin: 10px 0;
+
+ 
+
     font-size: 19px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-card p {
+
+ 
+
     min-height: 62px;
+
+ 
+
     margin-bottom: 20px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .game-start {
+
+ 
+
     width: 100%;
+
+ 
+
     border: 0;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Área principal del juego */
 
+ 
+
+ 
+
+ 
+
 .game-area {
+
+ 
+
     margin-top: 30px;
+
+ 
+
     padding: 27px;
+
+ 
+
     background: var(--bg);
+
+ 
+
     border: 1px solid rgba(0, 194, 168, .35);
+
+ 
+
     border-radius: 15px;
+
+ 
+
     box-shadow: var(--shadow);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-area[hidden] {
+
+ 
+
     display: none !important;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-area-header {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: space-between;
+
+ 
+
     gap: 15px;
+
+ 
+
     margin-bottom: 20px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-area-header h3 {
+
+ 
+
     font-size: 20px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .close-button {
+
+ 
+
     flex-shrink: 0;
+
+ 
+
     width: 37px;
+
+ 
+
     height: 37px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     color: var(--muted);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 9px;
+
+ 
+
     font-size: 17px;
+
+ 
+
     transition: .2s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .close-button:hover {
+
+ 
+
     color: var(--white);
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-progress {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: space-between;
+
+ 
+
     flex-wrap: wrap;
+
+ 
+
     gap: 10px;
+
+ 
+
     margin-bottom: 18px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-progress strong {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .question-text {
+
+ 
+
     margin-bottom: 20px;
+
+ 
+
     font-size: 17px;
+
+ 
+
     font-weight: 700;
+
+ 
+
     line-height: 1.5;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-options {
+
+ 
+
     display: grid;
+
+ 
+
     gap: 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-option {
+
+ 
+
     width: 100%;
+
+ 
+
     min-height: 48px;
+
+ 
+
     padding: 14px 16px;
+
+ 
+
     text-align: left;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 9px;
-    transition: background .2s, border-color .2s, transform .2s;
+
+ 
+
+    transition: *background* .2s, border-color .2s, transform .2s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-option:hover:not(:disabled) {
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
     background: var(--surface-light);
+
+ 
+
     transform: translateX(3px);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-option:disabled {
+
+ 
+
     cursor: default;
+
+ 
+
     opacity: .85;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-option.correct,
+
+ 
+
 .game-option.correct-answer {
+
+ 
+
     color: #FFFFFF;
+
+ 
+
     background: rgba(34, 197, 94, .18);
+
+ 
+
     border-color: var(--success);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-option.incorrect,
+
+ 
+
 .game-option.wrong-answer {
+
+ 
+
     color: #FFFFFF;
+
+ 
+
     background: rgba(255, 100, 100, .16);
+
+ 
+
     border-color: var(--danger);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-feedback {
+
+ 
+
     min-height: 27px;
+
+ 
+
     margin: 17px 0;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 13px;
+
+ 
+
     font-weight: 600;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-feedback.success {
+
+ 
+
     color: var(--success);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-feedback.error {
+
+ 
+
     color: var(--danger);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-feedback.warning {
+
+ 
+
     color: var(--warning);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-result {
+
+ 
+
     padding: 25px 0;
+
+ 
+
     text-align: center;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-result h3 {
+
+ 
+
     margin: 10px 0;
+
+ 
+
     font-size: 25px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-result p {
+
+ 
+
     margin-bottom: 20px;
+
+ 
+
     color: var(--muted);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-result i {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 45px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .game-result .btn {
+
+ 
+
     margin: 5px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Barra visual del tiempo, si el juego la utiliza */
 
+ 
+
+ 
+
+ 
+
 .game-timer {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: space-between;
+
+ 
+
     gap: 12px;
+
+ 
+
     margin: 12px 0 20px;
+
+ 
+
     padding: 12px 15px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-timer strong {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 18px;
+
+ 
+
     font-variant-numeric: tabular-nums;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-timer.warning strong {
+
+ 
+
     color: var(--warning);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .game-timer.danger strong {
+
+ 
+
     color: var(--danger);
+
+ 
+
     animation: timerPulse .8s ease-in-out infinite;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 @keyframes timerPulse {
+
+ 
+
     50% {
+
+ 
+
         opacity: .5;
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 13. PERFILES */
 
+ 
+
+ 
+
+ 
+
 .profiles-section {
+
+ 
+
     background: var(--bg);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profiles-grid {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(3, 1fr);
+
+ 
+
     gap: 22px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-card {
+
+ 
+
     padding: 30px 24px;
+
+ 
+
     text-align: center;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 15px;
+
+ 
+
     transition: transform .25s, border-color .25s, box-shadow .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-card:hover {
+
+ 
+
     transform: translateY(-5px);
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-card.is-selected {
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
     box-shadow: 0 0 0 1px rgba(0, 194, 168, .25);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-card > i {
+
+ 
+
     margin-bottom: 17px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 36px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-card h3 {
+
+ 
+
     margin-bottom: 9px;
+
+ 
+
     font-size: 19px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-card p {
+
+ 
+
     min-height: 60px;
+
+ 
+
     margin-bottom: 20px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-card .btn {
+
+ 
+
     width: 100%;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .profile-result {
+
+ 
+
     min-height: 22px;
+
+ 
+
     color: var(--turquoise) !important;
+
+ 
+
     font-weight: 700;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 14. PANEL DE USUARIO */
 
+ 
+
+ 
+
+ 
+
 .user-dashboard {
+
+ 
+
     padding: 25px;
+
+ 
+
     margin-top: 25px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .user-dashboard h3 {
+
+ 
+
     margin-bottom: 8px;
+
+ 
+
     font-size: 21px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .user-dashboard > p {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 13px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .user-dashboard[hidden] {
+
+ 
+
     display: none !important;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .dashboard-stats {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(4, 1fr);
+
+ 
+
     gap: 12px;
+
+ 
+
     margin: 20px 0;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .dashboard-stat {
+
+ 
+
     padding: 16px;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 10px;
+
+ 
+
     text-align: center;
+
+ 
+
     overflow-wrap: anywhere;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .dashboard-stat strong {
+
+ 
+
     display: block;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 21px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .dashboard-stat span {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 11px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 15. NOSOTROS */
 
+ 
+
+ 
+
+ 
+
 .about-section {
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .about-content {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: 1fr 1fr;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 65px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .about-image {
+
+ 
+
     position: relative;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .about-image img {
+
+ 
+
     width: 100%;
+
+ 
+
     height: 390px;
+
+ 
+
     object-fit: cover;
+
+ 
+
     border-radius: 17px;
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .about-badge {
+
+ 
+
     position: absolute;
+
+ 
+
     right: -18px;
+
+ 
+
     bottom: 25px;
+
+ 
+
     padding: 13px 17px;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--turquoise);
+
+ 
+
     border-radius: 10px;
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: 700;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .about-badge i {
+
+ 
+
     margin-right: 7px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .about-text p {
+
+ 
+
     margin: 16px 0;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 13px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .about-text .btn {
+
+ 
+
     margin-top: 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 16. LLAMADO A LA ACCIÓN */
 
+ 
+
+ 
+
+ 
+
 .cta-section {
+
+ 
+
     padding: 65px 0;
+
+ 
+
     background: linear-gradient(110deg, #075F65, #174A91);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .cta-content {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: space-between;
+
+ 
+
     gap: 30px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .cta-content h2 {
+
+ 
+
     max-width: 550px;
+
+ 
+
     margin: 12px 0;
+
+ 
+
     font-size: clamp(25px, 4vw, 36px);
+
+ 
+
     line-height: 1.2;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .cta-content p {
+
+ 
+
     color: rgba(255, 255, 255, .8);
+
+ 
+
     font-size: 13px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 17. PIE DE PÁGINA */
 
+ 
+
+ 
+
+ 
+
 .footer {
+
+ 
+
     padding: 35px 0;
+
+ 
+
     background: #080E19;
+
+ 
+
     border-top: 1px solid var(--border);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .footer-content {
+
+ 
+
     display: flex;
+
+ 
+
     flex-wrap: wrap;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: space-between;
+
+ 
+
     gap: 18px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .footer-content p,
+
+ 
+
 .footer-content > span {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 11px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .footer-credit {
+
+ 
+
     width: 100%;
+
+ 
+
     text-align: center;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 18. MODAL DE PERFILES */
 
+ 
+
+ 
+
+ 
+
 .modal {
+
+ 
+
     position: fixed;
+
+ 
+
     z-index: 300;
+
+ 
+
     inset: 0;
+
+ 
+
     display: none;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: center;
+
+ 
+
     padding: 20px;
+
+ 
+
     background: rgba(0, 0, 0, .75);
+
+ 
+
     backdrop-filter: blur(7px);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .modal.active {
+
+ 
+
     display: flex;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .modal-box {
+
+ 
+
     position: relative;
+
+ 
+
     width: min(430px, 100%);
+
+ 
+
     max-height: 90vh;
+
+ 
+
     overflow-y: auto;
+
+ 
+
     padding: 35px;
+
+ 
+
     text-align: center;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 17px;
+
+ 
+
     box-shadow: 0 20px 70px rgba(0, 0, 0, .4);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .modal-box > .close-button {
+
+ 
+
     position: absolute;
+
+ 
+
     top: 15px;
+
+ 
+
     right: 15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .modal-icon {
+
+ 
+
     width: 65px;
+
+ 
+
     height: 65px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     margin: 0 auto 15px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     background: rgba(0, 194, 168, .12);
+
+ 
+
     border-radius: 18px;
+
+ 
+
     font-size: 27px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .modal-box h2 {
+
+ 
+
     margin-bottom: 7px;
+
+ 
+
     font-size: 23px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .modal-box > p {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-options {
+
+ 
+
     display: grid;
+
+ 
+
     gap: 10px;
+
+ 
+
     margin: 24px 0 15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-option {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 13px;
+
+ 
+
     width: 100%;
+
+ 
+
     padding: 14px;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 9px;
+
+ 
+
     text-align: left;
+
+ 
+
     transition: .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-option:hover,
+
+ 
+
 .profile-option.selected {
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
     background: rgba(0, 194, 168, .08);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .profile-option i {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .modal-box small {
+
+ 
+
     display: block;
+
+ 
+
     margin-top: 13px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 19. MODAL DE AUTENTICACIÓN */
 
+ 
+
+ 
+
+ 
+
 .auth-modal {
+
+ 
+
     position: fixed;
+
+ 
+
     z-index: 10001;
+
+ 
+
     inset: 0;
+
+ 
+
     display: none;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: center;
+
+ 
+
     padding: 20px;
+
+ 
+
     overflow-y: auto;
+
+ 
+
     background: rgba(3, 9, 20, .88);
+
+ 
+
     backdrop-filter: blur(9px);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-modal.active {
+
+ 
+
     display: flex;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box {
+
+ 
+
     position: relative;
+
+ 
+
     width: min(100%, 480px);
+
+ 
+
     max-height: 90vh;
+
+ 
+
     overflow-y: auto;
+
+ 
+
     padding: 34px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid rgba(0, 194, 168, .3);
+
+ 
+
     border-radius: 20px;
+
+ 
+
     box-shadow: 0 25px 70px rgba(0, 0, 0, .45);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box h2 {
+
+ 
+
     margin: 8px 0;
+
+ 
+
     font-size: 25px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box > p {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 13px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box label {
+
+ 
+
     display: block;
+
+ 
+
     margin: 15px 0 6px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: 700;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box input,
+
+ 
+
 .auth-box select {
+
+ 
+
     width: 100%;
+
+ 
+
     padding: 13px 14px;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: var(--bg);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 9px;
+
+ 
+
     outline: none;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box input:focus,
+
+ 
+
 .auth-box select:focus {
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box input::placeholder {
+
+ 
+
     color: #8292A8;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box select option {
+
+ 
+
     color: var(--white);
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-box .btn {
+
+ 
+
     width: 100%;
+
+ 
+
     margin-top: 18px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-close {
+
+ 
+
     position: absolute;
+
+ 
+
     top: 12px;
+
+ 
+
     right: 16px;
+
+ 
+
     border: 0;
+
+ 
+
     background: none;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 25px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-close:hover {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-switch {
+
+ 
+
     margin-top: 18px;
+
+ 
+
     text-align: center;
+
+ 
+
     font-size: 13px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-switch button {
+
+ 
+
     border: 0;
+
+ 
+
     background: none;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-weight: 700;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .auth-message {
+
+ 
+
     min-height: 20px;
+
+ 
+
     margin-top: 12px;
+
+ 
+
     color: #ffb4a8;
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .auth-note {
+
+ 
+
     margin-top: 12px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 11px;
+
+ 
+
     text-align: center;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 20. VENTANA DE INFORMACIÓN DE LOS TEMAS */
 
+ 
+
+ 
+
+ 
+
 .topic-modal {
+
+ 
+
     display: none;
+
+ 
+
     position: fixed;
+
+ 
+
     inset: 0;
+
+ 
+
     z-index: 9999;
+
+ 
+
     background: rgba(3, 9, 20, .88);
+
+ 
+
     backdrop-filter: blur(8px);
+
+ 
+
     padding: 25px;
+
+ 
+
     overflow-y: auto;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-modal.active {
+
+ 
+
     display: flex;
+
+ 
+
     justify-content: center;
+
+ 
+
     align-items: flex-start;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-modal-content {
+
+ 
+
     position: relative;
+
+ 
+
     width: 100%;
+
+ 
+
     max-width: 850px;
+
+ 
+
     margin: 35px auto;
+
+ 
+
     padding: 40px;
+
+ 
+
     border: 1px solid rgba(0, 194, 168, .3);
+
+ 
+
     border-radius: 20px;
+
+ 
+
     background: #14243B;
+
+ 
+
     color: #F4F7FB;
+
+ 
+
     box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-close {
+
+ 
+
     position: absolute;
+
+ 
+
     top: 15px;
+
+ 
+
     right: 20px;
+
+ 
+
     border: none;
+
+ 
+
     background: transparent;
+
+ 
+
     color: #A5B4C8;
+
+ 
+
     font-size: 35px;
+
+ 
+
     cursor: pointer;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-close:hover {
+
+ 
+
     color: #00C2A8;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-content h2 {
+
+ 
+
     color: #00C2A8;
+
+ 
+
     font-size: 30px;
+
+ 
+
     margin: 15px 0;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-content h3 {
+
+ 
+
     color: #397BFA;
+
+ 
+
     margin: 25px 0 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-content p,
+
+ 
+
 .topic-content li {
+
+ 
+
     color: #D5DFED;
+
+ 
+
     line-height: 1.8;
+
+ 
+
     font-size: 15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-content ul {
+
+ 
+
     padding-left: 22px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-label {
+
+ 
+
     display: inline-block;
+
+ 
+
     padding: 7px 13px;
+
+ 
+
     border-radius: 20px;
+
+ 
+
     background: rgba(0, 194, 168, .12);
+
+ 
+
     color: #00C2A8;
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: bold;
+
+ 
+
     letter-spacing: 1px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-example {
+
+ 
+
     margin-top: 20px;
+
+ 
+
     padding: 18px;
+
+ 
+
     background: rgba(57, 123, 250, .1);
+
+ 
+
     border-left: 4px solid #397BFA;
+
+ 
+
     border-radius: 8px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-quiz {
+
+ 
+
     margin-top: 30px;
+
+ 
+
     padding: 22px;
+
+ 
+
     background: rgba(0, 194, 168, .08);
+
+ 
+
     border: 1px solid rgba(0, 194, 168, .25);
+
+ 
+
     border-radius: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-quiz button {
+
+ 
+
     display: block;
+
+ 
+
     width: 100%;
+
+ 
+
     margin-top: 10px;
+
+ 
+
     padding: 13px;
+
+ 
+
     border: 1px solid rgba(165, 180, 200, .25);
+
+ 
+
     border-radius: 8px;
+
+ 
+
     background: #0B1220;
+
+ 
+
     color: #F4F7FB;
+
+ 
+
     text-align: left;
+
+ 
+
     cursor: pointer;
+
+ 
+
     transition: .2s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-quiz button:hover {
+
+ 
+
     border-color: #00C2A8;
+
+ 
+
     background: rgba(0, 194, 168, .12);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .topic-quiz button:disabled {
+
+ 
+
     cursor: default;
+
+ 
+
     opacity: .85;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .topic-feedback {
+
+ 
+
     margin-top: 15px;
+
+ 
+
     font-weight: bold;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 21. MODO CLARO */
 
+ 
+
+ 
+
+ 
+
 body.light-mode {
+
+ 
+
     --bg: #F2F6FB;
+
+ 
+
     --bg-secondary: #E8EEF6;
+
+ 
+
     --surface: #FFFFFF;
+
+ 
+
     --surface-light: #F4F7FB;
+
+ 
+
     --white: #14243B;
+
+ 
+
     --muted: #52647B;
+
+ 
+
     --border: rgba(20, 36, 59, .14);
+
+ 
+
     --success: #16803D;
+
+ 
+
     --danger: #D93636;
+
+ 
+
     --warning: #B77900;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .header {
+
+ 
+
     background: rgba(242, 246, 251, .95);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .footer {
+
+ 
+
     background: #E2EAF4;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .auth-modal,
+
+ 
+
 body.light-mode .topic-modal {
+
+ 
+
     background: rgba(20, 36, 59, .65);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .topic-modal-content {
+
+ 
+
     background: #FFFFFF;
+
+ 
+
     color: #14243B;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .topic-content p,
+
+ 
+
 body.light-mode .topic-content li {
+
+ 
+
     color: #52647B;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .topic-quiz button {
+
+ 
+
     background: #F2F6FB;
+
+ 
+
     color: #14243B;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .game-area {
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .game-option {
+
+ 
+
     color: var(--white);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .game-option.correct,
+
+ 
+
 body.light-mode .game-option.correct-answer {
+
+ 
+
     color: #14532D;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 body.light-mode .game-option.incorrect,
+
+ 
+
 body.light-mode .game-option.wrong-answer {
+
+ 
+
     color: #7F1D1D;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 22. RESPONSIVE: TABLETS */
 
+ 
+
+ 
+
+ 
+
 @media (max-width: 1050px) {
+
+ 
+
     .navbar {
+
+ 
+
         gap: 12px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .nav-links {
+
+ 
+
         gap: 13px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .nav-links a {
+
+ 
+
         font-size: 11px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .profile-button {
+
+ 
+
         padding: 9px 10px;
+
+ 
+
         font-size: 11px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .account-actions {
+
+ 
+
         gap: 6px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero-content {
+
+ 
+
         gap: 15px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero h1 {
+
+ 
+
         font-size: 49px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .learning-grid,
+
+ 
+
     .video-grid,
+
+ 
+
     .games-grid {
+
+ 
+
         grid-template-columns: repeat(2, minmax(0, 1fr));
+
+ 
+
     }
 
+ 
+
+ 
+
+ 
+
     .about-content {
+
+ 
+
         gap: 30px;
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 23. RESPONSIVE: CELULARES */
 
+ 
+
+ 
+
+ 
+
 @media (max-width: 760px) {
+
+ 
+
     .navbar {
+
+ 
+
         min-height: 70px;
+
+ 
+
         flex-wrap: wrap;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .logo {
+
+ 
+
         font-size: 18px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .menu-toggle {
+
+ 
+
         display: block;
+
+ 
+
         margin-left: auto;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .account-actions {
+
+ 
+
         order: 3;
+
+ 
+
         width: 100%;
+
+ 
+
         justify-content: center;
+
+ 
+
         padding-bottom: 12px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .profile-button {
+
+ 
+
         padding: 9px 12px;
+
+ 
+
         font-size: 11px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .nav-links {
+
+ 
+
         position: absolute;
+
+ 
+
         top: 100%;
+
+ 
+
         left: 0;
+
+ 
+
         width: 100%;
+
+ 
+
         display: none;
+
+ 
+
         flex-direction: column;
+
+ 
+
         align-items: flex-start;
+
+ 
+
         gap: 18px;
+
+ 
+
         padding: 22px 5%;
+
+ 
+
         background: var(--bg-secondary);
+
+ 
+
         border-bottom: 1px solid var(--border);
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .nav-links.active {
+
+ 
+
         display: flex;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .nav-links a {
+
+ 
+
         font-size: 13px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero-content {
+
+ 
+
         grid-template-columns: 1fr;
+
+ 
+
         text-align: center;
+
+ 
+
         padding-top: 65px;
+
+ 
+
         padding-bottom: 55px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero h1 {
+
+ 
+
         max-width: 500px;
+
+ 
+
         margin: 20px auto;
+
+ 
+
         font-size: 45px;
+
+ 
+
         letter-spacing: -2px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero-text > p {
+
+ 
+
         margin: 0 auto 24px;
+
+ 
+
         font-size: 13px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero-buttons,
-    .hero-features {
-        justify-content: center;
-    }
+
+ 
 
     .hero-features {
-        gap: 14px;
+
+ 
+
+        justify-content: center;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
+
+    .hero-features {
+
+ 
+
+        gap: 14px;
+
+ 
+
+    }
+
+ 
+
+ 
+
+ 
 
     .hero-features div {
+
+ 
+
         font-size: 10px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero-visual {
+
+ 
+
         min-height: 340px;
+
+ 
+
         margin-top: 10px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .security-circle {
+
+ 
+
         width: 230px;
+
+ 
+
         height: 230px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .main-shield {
+
+ 
+
         width: 145px;
+
+ 
+
         height: 145px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .floating-icon {
+
+ 
+
         width: 43px;
+
+ 
+
         height: 43px;
+
+ 
+
         font-size: 16px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .icon-two {
+
+ 
+
         right: -15px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .security-message {
+
+ 
+
         margin-top: 28px;
+
+ 
+
         font-size: 10px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .stats-grid {
+
+ 
+
         grid-template-columns: repeat(2, 1fr);
+
+ 
+
         gap: 25px 10px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .stat-item {
+
+ 
+
         justify-content: flex-start;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .stat-item > i {
+
+ 
+
         font-size: 21px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .stat-item h3 {
+
+ 
+
         font-size: 14px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .stat-item p {
+
+ 
+
         font-size: 10px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .section {
+
+ 
+
         padding: 70px 0;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .section-heading {
+
+ 
+
         margin-bottom: 35px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .section-heading h2 {
+
+ 
+
         font-size: 29px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .section-heading p {
+
+ 
+
         font-size: 12px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .learning-grid,
+
+ 
+
     .video-grid,
+
+ 
+
     .games-grid,
+
+ 
+
     .profiles-grid,
+
+ 
+
     .content-grid,
+
+ 
+
     .about-content {
+
+ 
+
         grid-template-columns: 1fr;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .learning-card > img {
+
+ 
+
         height: 205px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .content-item {
+
+ 
+
         padding: 19px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .about-image img {
+
+ 
+
         height: 280px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .about-badge {
+
+ 
+
         right: 8px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .cta-content {
+
+ 
+
         flex-direction: column;
+
+ 
+
         align-items: flex-start;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .footer-content {
+
+ 
+
         flex-direction: column;
+
+ 
+
         align-items: flex-start;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .footer-credit {
+
+ 
+
         text-align: left;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .dashboard-stats {
+
+ 
+
         grid-template-columns: repeat(2, 1fr);
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .game-area {
+
+ 
+
         padding: 18px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .game-area-header h3 {
+
+ 
+
         font-size: 17px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .question-text {
+
+ 
+
         font-size: 15px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .game-option {
+
+ 
+
         padding: 13px;
+
+ 
+
         font-size: 13px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .game-result h3 {
+
+ 
+
         font-size: 22px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .topic-modal {
+
+ 
+
         padding: 15px;
+
+ 
+
     }
 
+ 
+
+ 
+
+ 
+
     .topic-modal-content {
+
+ 
+
         padding: 35px 25px;
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* 24. CELULARES PEQUEÑOS */
 
+ 
+
+ 
+
+ 
+
 @media (max-width: 380px) {
+
+ 
+
     .container {
+
+ 
+
         width: 92%;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .logo {
+
+ 
+
         font-size: 15px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .profile-button {
+
+ 
+
         padding: 8px;
+
+ 
+
         font-size: 10px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero h1 {
+
+ 
+
         font-size: 37px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero-buttons .btn {
+
+ 
+
         width: 100%;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .security-circle {
+
+ 
+
         width: 205px;
+
+ 
+
         height: 205px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .main-shield {
+
+ 
+
         width: 130px;
+
+ 
+
         height: 130px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .hero-features {
+
+ 
+
         flex-direction: column;
+
+ 
+
         align-items: center;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .auth-box {
+
+ 
+
         padding: 28px 20px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .modal-box {
+
+ 
+
         padding: 30px 20px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .topic-modal {
+
+ 
+
         padding: 10px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .topic-modal-content {
+
+ 
+
         padding: 35px 20px 25px;
+
+ 
+
         margin: 15px auto;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .topic-content h2 {
+
+ 
+
         font-size: 24px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .game-area {
+
+ 
+
         padding: 14px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .dashboard-stat {
+
+ 
+
         padding: 12px 8px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .dashboard-stat strong {
+
+ 
+
         font-size: 18px;
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* ======================================================
+
+ 
+
    25. MENÚ DE CUENTA Y FOTO DE PERFIL
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 .account-actions {
+
+ 
+
     position: relative;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-avatar-button {
+
+ 
+
     width: 43px;
+
+ 
+
     height: 43px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     overflow: hidden;
+
+ 
+
     padding: 0;
+
+ 
+
     color: white;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 2px solid var(--turquoise);
+
+ 
+
     border-radius: 50%;
+
+ 
+
     cursor: pointer;
+
+ 
+
     transition: .25s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-avatar-button:hover {
+
+ 
+
     transform: scale(1.06);
+
+ 
+
     box-shadow: 0 0 15px rgba(0, 194, 168, .3);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-avatar-button img {
+
+ 
+
     width: 100%;
+
+ 
+
     height: 100%;
+
+ 
+
     object-fit: cover;
+
+ 
+
     border-radius: 50%;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .account-avatar-button span {
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     width: 100%;
+
+ 
+
     height: 100%;
+
+ 
+
     font-size: 18px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Menú desplegable */
 
+ 
+
+ 
+
+ 
+
 .account-dropdown {
+
+ 
+
     position: absolute;
+
+ 
+
     top: calc(100% + 14px);
+
+ 
+
     right: 0;
+
+ 
+
     z-index: 500;
+
+ 
+
     width: 290px;
+
+ 
+
     padding: 12px;
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 15px;
+
+ 
+
     box-shadow: 0 18px 45px rgba(0, 0, 0, .4);
+
+ 
+
     animation: accountMenuAppear .2s ease;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 @keyframes accountMenuAppear {
+
+ 
+
     from {
+
+ 
+
         opacity: 0;
+
+ 
+
         transform: translateY(-8px);
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     to {
+
+ 
+
         opacity: 1;
+
+ 
+
         transform: translateY(0);
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown-header {
+
+ 
+
     display: flex;
+
+ 
+
     flex-direction: column;
+
+ 
+
     gap: 3px;
+
+ 
+
     padding: 13px 12px 16px;
+
+ 
+
     border-bottom: 1px solid var(--border);
+
+ 
+
     margin-bottom: 7px;
+
+ 
+
     overflow: hidden;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown-header strong {
+
+ 
+
     color: var(--white);
+
+ 
+
     font-size: 14px;
+
+ 
+
     overflow-wrap: anywhere;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .account-dropdown-header span {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 11px;
+
+ 
+
     overflow-wrap: anywhere;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown > button {
+
+ 
+
     width: 100%;
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     gap: 12px;
+
+ 
+
     padding: 12px;
+
+ 
+
     color: var(--white);
+
+ 
+
     background: transparent;
+
+ 
+
     border: 0;
+
+ 
+
     border-radius: 9px;
+
+ 
+
     text-align: left;
+
+ 
+
     font-size: 12px;
+
+ 
+
     font-weight: 600;
+
+ 
+
     transition: .2s;
+
+ 
+
     appearance: none;
+
+ 
+
     font-family: inherit;
+
+ 
+
     cursor: pointer;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown > button:hover {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     background: rgba(0, 194, 168, .09);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown > button i {
+
+ 
+
     width: 18px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     text-align: center;
+
+ 
+
     font-size: 15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown-divider {
+
+ 
+
     height: 1px;
+
+ 
+
     margin: 8px 4px;
+
+ 
+
     background: var(--border);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown > .logout-menu-button {
+
+ 
+
     color: #FF8585;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown > .logout-menu-button i {
+
+ 
+
     color: #FF8585;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown > .logout-menu-button:hover {
+
+ 
+
     color: #FF6B6B;
+
+ 
+
     background: rgba(255, 80, 80, .09);
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    26. MODAL DE AVATARES
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 .avatar-modal-box {
+
+ 
+
     width: min(520px, 100%);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-modal-box > h2 {
+
+ 
+
     margin-top: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-modal-box > h3 {
+
+ 
+
     margin: 23px 0 14px;
+
+ 
+
     font-size: 15px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-preview {
+
+ 
+
     width: 105px;
+
+ 
+
     height: 105px;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     overflow: hidden;
+
+ 
+
     margin: 22px auto;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 3px solid var(--turquoise);
+
+ 
+
     border-radius: 50%;
+
+ 
+
     box-shadow: 0 0 25px rgba(0, 194, 168, .16);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-preview img {
+
+ 
+
     width: 100%;
+
+ 
+
     height: 100%;
+
+ 
+
     object-fit: cover;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-preview span {
+
+ 
+
     font-size: 38px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-gallery {
+
+ 
+
     display: grid;
+
+ 
+
     grid-template-columns: repeat(6, 1fr);
+
+ 
+
     gap: 10px;
+
+ 
+
     margin: 18px 0 25px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-option {
+
+ 
+
     aspect-ratio: 1;
+
+ 
+
     display: grid;
+
+ 
+
     place-items: center;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 12px;
+
+ 
+
     font-size: 22px;
+
+ 
+
     transition: .2s;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-option:hover {
+
+ 
+
     transform: translateY(-3px);
+
+ 
+
     border-color: var(--turquoise);
+
+ 
+
     background: rgba(0, 194, 168, .1);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-option.selected {
+
+ 
+
     color: white;
+
+ 
+
     background: rgba(0, 194, 168, .2);
+
+ 
+
     border: 2px solid var(--turquoise);
+
+ 
+
     box-shadow: 0 0 12px rgba(0, 194, 168, .2);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-upload-area {
+
+ 
+
     padding: 18px;
+
+ 
+
     margin-bottom: 17px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px dashed rgba(0, 194, 168, .45);
+
+ 
+
     border-radius: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-upload-area label {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: center;
+
+ 
+
     gap: 10px;
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-size: 13px;
+
+ 
+
     font-weight: 700;
+
+ 
+
     cursor: pointer;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-upload-area label:hover {
+
+ 
+
     color: var(--white);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-upload-area label i {
+
+ 
+
     font-size: 19px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-upload-area p {
+
+ 
+
     margin-top: 8px;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 10px;
+
+ 
+
     text-align: center;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .avatar-modal-box > .btn {
+
+ 
+
     width: 100%;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    27. MODAL DE DATOS DE CUENTA
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 .account-details-content {
+
+ 
+
     display: grid;
+
+ 
+
     gap: 12px;
+
+ 
+
     margin-top: 25px;
+
+ 
+
     text-align: left;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-details-content > div {
+
+ 
+
     display: flex;
+
+ 
+
     flex-direction: column;
+
+ 
+
     gap: 5px;
+
+ 
+
     padding: 15px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-details-content span {
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 11px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-details-content strong {
+
+ 
+
     color: var(--white);
+
+ 
+
     font-size: 13px;
+
+ 
+
     overflow-wrap: anywhere;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    28. MODAL DE PERSONALIZACIÓN DE EXPERIENCIA
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 .experience-options {
+
+ 
+
     display: grid;
+
+ 
+
     gap: 12px;
+
+ 
+
     margin: 25px 0;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .experience-options label {
+
+ 
+
     display: flex;
+
+ 
+
     align-items: center;
+
+ 
+
     justify-content: space-between;
+
+ 
+
     gap: 15px;
+
+ 
+
     padding: 15px;
+
+ 
+
     background: var(--surface);
+
+ 
+
     border: 1px solid var(--border);
+
+ 
+
     border-radius: 10px;
+
+ 
+
     cursor: pointer;
+
+ 
+
     text-align: left;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .experience-options label > span {
+
+ 
+
     display: flex;
+
+ 
+
     flex-direction: column;
+
+ 
+
     gap: 4px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .experience-options strong {
+
+ 
+
     color: var(--white);
+
+ 
+
     font-size: 12px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .experience-options small {
+
+ 
+
     margin: 0;
+
+ 
+
     color: var(--muted);
+
+ 
+
     font-size: 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .experience-options input {
+
+ 
+
     width: 18px;
+
+ 
+
     height: 18px;
+
+ 
+
     flex-shrink: 0;
+
+ 
+
     accent-color: var(--turquoise);
+
+ 
+
     cursor: pointer;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 #saveExperienceButton {
+
+ 
+
     width: 100%;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    29. ADAPTACIÓN DEL MENÚ Y AVATARES A CELULARES
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 @media (max-width: 760px) {
+
+ 
+
     .account-actions {
+
+ 
+
         position: relative;
+
+ 
+
     }
 
+ 
+
+ 
+
+ 
+
     .account-dropdown {
+
+ 
+
         top: calc(100% + 8px);
+
+ 
+
         right: 0;
+
+ 
+
         width: min(310px, calc(100vw - 30px));
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .account-avatar-button {
+
+ 
+
         width: 40px;
+
+ 
+
         height: 40px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .avatar-gallery {
+
+ 
+
         grid-template-columns: repeat(4, 1fr);
+
+ 
+
         gap: 12px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .avatar-option {
+
+ 
+
         font-size: 21px;
+
+ 
+
     }
 
+ 
+
+ 
+
+ 
+
     .avatar-modal-box {
+
+ 
+
         padding: 30px 22px;
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 @media (max-width: 380px) {
+
+ 
+
     .account-dropdown {
+
+ 
+
         width: min(290px, calc(100vw - 20px));
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .avatar-gallery {
+
+ 
+
         gap: 8px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .avatar-option {
+
+ 
+
         font-size: 18px;
+
+ 
+
     }
+
+ 
+
+ 
+
+ 
 
     .avatar-modal-box {
+
+ 
+
         padding: 28px 16px;
+
+ 
+
     }
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    30. CORRECCIÓN VISUAL DEL MENÚ DE CUENTA
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 .account-dropdown[hidden],
+
+ 
+
 .account-avatar-button[hidden],
+
+ 
+
 .account-avatar-button img[hidden],
+
+ 
+
 .account-avatar-button span[hidden] {
+
+ 
+
     display: none !important;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown:not([hidden]) {
+
+ 
+
     display: block !important;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown > button:focus-visible,
+
+ 
+
 .account-avatar-button:focus-visible {
+
+ 
+
     outline: 2px solid var(--turquoise);
+
+ 
+
     outline-offset: 3px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown-header strong {
+
+ 
+
     color: var(--white);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .account-dropdown-header span {
+
+ 
+
     color: var(--muted);
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    31. CONTROL GENERAL DE ANIMACIONES
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 html.animations-disabled,
+
+ 
+
 html.animations-disabled *,
+
+ 
+
 html.animations-disabled *::before,
+
+ 
+
 html.animations-disabled *::after,
+
+ 
+
 body.animations-disabled,
+
+ 
+
 body.animations-disabled *,
+
+ 
+
 body.animations-disabled *::before,
+
+ 
+
 body.animations-disabled *::after {
+
+ 
+
     animation: none !important;
+
+ 
+
     transition: none !important;
+
+ 
+
     scroll-behavior: auto !important;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 html.animations-disabled .btn:hover,
+
+ 
+
 html.animations-disabled .learning-card:hover,
+
+ 
+
 html.animations-disabled .video-card:hover,
+
+ 
+
 html.animations-disabled .game-card:hover,
+
+ 
+
 html.animations-disabled .profile-card:hover,
+
+ 
+
 html.animations-disabled .avatar-option:hover,
+
+ 
+
 html.animations-disabled .account-avatar-button:hover,
+
+ 
+
 body.animations-disabled .btn:hover,
+
+ 
+
 body.animations-disabled .learning-card:hover,
+
+ 
+
 body.animations-disabled .video-card:hover,
+
+ 
+
 body.animations-disabled .game-card:hover,
+
+ 
+
 body.animations-disabled .profile-card:hover,
+
+ 
+
 body.animations-disabled .avatar-option:hover,
+
+ 
+
 body.animations-disabled .account-avatar-button:hover {
+
+ 
+
     transform: none !important;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    32. ACCESIBILIDAD Y DETALLES FINALES
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 ::selection {
+
+ 
+
     color: #FFFFFF;
+
+ 
+
     background: #087F75;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .account-dropdown {
+
+ 
+
     box-shadow: 0 18px 45px rgba(20, 36, 59, .16);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .account-avatar-button {
+
+ 
+
     color: var(--white);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .game-option {
+
+ 
+
     color: var(--white);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 body.light-mode .game-area {
+
+ 
+
     background: var(--bg-secondary);
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 /* ======================================================
+
+ 
+
    33. AJUSTES FINALES PARA LOS NUEVE JUEGOS
-====================================================== */
+
+ 
+
+\====================================================== */
+
+ 
+
+ 
+
+ 
 
 /* Mantener las tarjetas con alturas uniformes */
 
+ 
+
+ 
+
+ 
+
 .games-grid .game-card {
+
+ 
+
     display: flex;
+
+ 
+
     flex-direction: column;
+
+ 
+
     align-items: stretch;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .games-grid .game-card p {
+
+ 
+
     flex-grow: 1;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Evitar desbordamientos en preguntas largas */
 
+ 
+
+ 
+
+ 
+
 .game-area,
+
+ 
+
 .game-area * {
+
+ 
+
     overflow-wrap: break-word;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .game-area button {
+
+ 
+
     font-family: inherit;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Mejorar la lectura de las respuestas */
 
+ 
+
+ 
+
+ 
+
 .game-options .game-option {
+
+ 
+
     line-height: 1.5;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Estado de respuesta correcta */
 
+ 
+
+ 
+
+ 
+
 .game-option.correct,
+
+ 
+
 .game-option.correct-answer {
+
+ 
+
     border-width: 1px;
+
+ 
+
     box-shadow: 0 0 12px rgba(34, 197, 94, .08);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Estado de respuesta incorrecta */
 
+ 
+
+ 
+
+ 
+
 .game-option.incorrect,
+
+ 
+
 .game-option.wrong-answer {
+
+ 
+
     border-width: 1px;
+
+ 
+
     box-shadow: 0 0 12px rgba(255, 100, 100, .08);
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Botones de continuar y repetir */
 
+ 
+
+ 
+
+ 
+
 .game-area .btn {
+
+ 
+
     margin-top: 10px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .game-area .btn-primary {
+
+ 
+
     min-width: 145px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Indicadores de puntuación */
 
+ 
+
+ 
+
+ 
+
 .game-score,
+
+ 
+
 .game-xp {
+
+ 
+
     color: var(--turquoise);
+
+ 
+
     font-weight: 800;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Ajuste del desafío contrarreloj */
 
+ 
+
+ 
+
+ 
+
 .game-timer {
+
+ 
+
     font-variant-numeric: tabular-nums;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .game-timer strong {
+
+ 
+
     font-weight: 800;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Evitar que las ventanas superen la pantalla */
 
+ 
+
+ 
+
+ 
+
 .modal-box,
+
+ 
+
 .auth-box,
+
+ 
+
 .topic-modal-content {
+
+ 
+
     scrollbar-width: thin;
+
+ 
+
     scrollbar-color: var(--turquoise) transparent;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 .modal-box::-webkit-scrollbar,
+
+ 
+
 .auth-box::-webkit-scrollbar,
+
+ 
+
 .topic-modal-content::-webkit-scrollbar {
+
+ 
+
     width: 6px;
+
+ 
+
 }
 
+ 
+
+ 
+
+ 
+
 .modal-box::-webkit-scrollbar-thumb,
+
+ 
+
 .auth-box::-webkit-scrollbar-thumb,
+
+ 
+
 .topic-modal-content::-webkit-scrollbar-thumb {
+
+ 
+
     background: var(--turquoise);
+
+ 
+
     border-radius: 10px;
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* Reducir movimiento si el dispositivo lo solicita */
 
+ 
+
+ 
+
+ 
+
 @media (prefers-reduced-motion: reduce) {
+
+ 
+
     *,
+
+ 
+
     *::before,
+
+ 
+
     *::after {
+
+ 
+
         scroll-behavior: auto !important;
+
+ 
+
         animation-duration: .01ms !important;
+
+ 
+
         animation-iteration-count: 1 !important;
+
+ 
+
         transition-duration: .01ms !important;
+
+ 
+
     }
+
+ 
+
 }
+
+ 
+
+ 
+
+ 
 
 /* ======================================================
+
+ 
+
    FIN DE LA HOJA DE ESTILOS
+
+ 
+
    CIBERGUARD
+
+ 
+
+\====================================================== */
+
+ 
+
+/* ======================================================
+
+   CIBERGUARD - NAVEGACIÓN FINAL RESPONSIVE
+
+   Controles arriba, navegación debajo, sin duplicados
+
 ====================================================== */
-/* =========================================
-   SECCIÓN DE DESCARGA DE CIBERGUARD
-========================================= */
 
-.download-section {
-    width: 100%;
-    padding: 45px 20px;
-    margin: 35px auto 0;
-    text-align: center;
-    background: linear-gradient(135deg, #071b32, #0b3150);
-    border-top: 1px solid rgba(0, 200, 255, 0.3);
-}
-
-.download-section h2 {
-    color: #ffffff;
-    font-size: 28px;
-    margin-bottom: 12px;
-}
-
-.download-section p {
-    color: #b8d9ed;
-    font-size: 15px;
-    margin-bottom: 22px;
-}
-
-.download-button {
-    display: inline-block;
-    padding: 15px 28px;
-    background: #00c8ff;
-    color: #001522;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 10px;
-    transition: 0.25s ease;
-    box-shadow: 0 0 18px rgba(0, 200, 255, 0.25);
-}
-
-.download-button:hover {
-    background: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(0, 200, 255, 0.5);
-}
-
-.download-section .download-version {
-    margin-top: 18px;
-    margin-bottom: 0;
-    font-size: 12px;
-    color: #8caec2;
-}
-
-@media (max-width: 600px) {
-    .download-section {
-        padding: 35px 15px;
-    }
-
-    .download-section h2 {
-        font-size: 23px;
-    }
-
-    .download-button {
-        width: 100%;
-        max-width: 320px;
-        padding: 15px 12px;
-    }
-}
-/* =========================================
-   CIBERGUARD — NAVEGACIÓN TIPO APLICACIÓN
-========================================= */
-
-.vista-oculta {
-    display: none !important;
-}
-
-.nav-links a {
-    transition: 0.25s ease;
-}
-
-.nav-links a.nav-activo {
-    color: #38bdf8;
-    position: relative;
-}
-
-.nav-links a.nav-activo::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 100%;
-    height: 2px;
-    background: #38bdf8;
-    border-radius: 10px;
-}
-
-main {
-    min-height: calc(100vh - 90px);
-}
-
-main > section:not(.vista-oculta) {
-    animation: entradaPantalla 0.35s ease;
-}
-
-@keyframes entradaPantalla {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links a.nav-activo {
-        background: rgba(56, 189, 248, 0.12);
-        border-radius: 10px;
-    }
-
-    .nav-links a.nav-activo::after {
-        display: none;
-    }
-}
-/* ==========================================
-   CIBERGUARD — DISEÑO PREMIUM
-========================================== */
+ 
 
 :root {
-    --app-accent: #38bdf8;
-    --app-accent-2: #6366f1;
-    --app-surface: rgba(15, 29, 52, 0.88);
-    --app-border: rgba(148, 163, 184, 0.13);
+
+    --app-card: var(--surface);
+
+    --text-secondary: var(--muted);
+
+    --sidebar-width: 264px;
+
 }
 
-/* Fondo y acabado general */
-
-body {
-    background-image:
-        radial-gradient(ellipse at 15% 10%, rgba(14, 165, 233, 0.09), transparent 35%),
-        radial-gradient(ellipse at 85% 85%, rgba(99, 102, 241, 0.08), transparent 35%);
-}
-
-/* Encabezado */
-
-.header {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--app-border);
-}
-
-.navbar {
-    min-height: 82px;
-}
-
-.logo {
-    letter-spacing: -0.7px;
-}
-
-.logo-icon {
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
-}
-
-.nav-links a {
-    font-weight: 600;
-    font-size: 0.91rem;
-    padding: 10px 13px;
-    border-radius: 10px;
-}
-
-.nav-links a:hover,
-.nav-links a.nav-activo {
-    background: rgba(56, 189, 248, 0.10);
-    color: var(--app-accent);
-}
-
-/* Botones */
-
-.btn,
-.download-button,
-.profile-button {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.btn:hover,
-.download-button:hover,
-.profile-button:hover {
-    transform: translateY(-3px);
-}
-
-/* Pantallas */
-
-.section {
-    padding-top: 85px;
-    padding-bottom: 85px;
-}
-
-.section-heading {
-    max-width: 760px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.section-heading h2 {
-    letter-spacing: -1.2px;
-}
-
-/* Tarjetas */
-
-.learning-card,
-.video-card,
-.game-card,
-.profile-card,
-.content-item {
-    border: 1px solid var(--app-border);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease,
-                box-shadow 0.3s ease;
-}
-
-.learning-card:hover,
-.video-card:hover,
-.game-card:hover,
-.profile-card:hover,
-.content-item:hover {
-    transform: translateY(-6px);
-    border-color: rgba(56, 189, 248, 0.38);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.20);
-}
-
-.learning-card img,
-.video-image img {
-    transition: transform 0.45s ease;
-}
-
-.learning-card:hover img,
-.video-card:hover img {
-    transform: scale(1.045);
-}
-
-/* Búsqueda */
-
-.search-row {
-    border: 1px solid var(--app-border);
-    border-radius: 14px;
-    overflow: hidden;
-}
-
-.search-row:focus-within {
-    border-color: var(--app-accent);
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.10);
-}
-
-/* Portada */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero h1 {
-    letter-spacing: -2px;
-}
-
-.security-circle {
-    box-shadow: 0 0 70px rgba(56, 189, 248, 0.12);
-}
-
-/* Estadísticas */
-
-.stat-item {
-    border: 1px solid var(--app-border);
-    border-radius: 17px;
-    padding: 20px;
-    background: rgba(15, 29, 52, 0.35);
-}
-
-/* Juegos */
-
-.game-icon,
-.content-icon {
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover .game-icon,
-.content-item:hover .content-icon {
-    transform: scale(1.08);
-}
-
-/* Pie de página */
-
-.footer {
-    border-top: 1px solid var(--app-border);
-}
-
-/* Transiciones */
-
-.vista-oculta {
-    display: none !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .section {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    .hero h1 {
-        letter-spacing: -1px;
-    }
-
-    .navbar {
-        min-height: 70px;
-    }
-}
-/* ENCABEZADO — AJUSTE ELEGANTE */
-
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-}
-
-.navbar .logo {
-    flex-shrink: 0;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.navbar > .download-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 11px 16px;
-    border-radius: 12px;
-    white-space: nowrap;
-    font-size: 13px;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.account-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    flex-shrink: 0;
-}
-
-.account-actions button {
-    min-height: 40px;
-    border-radius: 11px;
-    white-space: nowrap;
-}
-
-.account-actions .profile-button {
-    padding: 9px 13px;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.account-actions .theme-toggle {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-}
-
-@media (max-width: 1100px) {
-    .navbar {
-        gap: 10px;
-    }
-
-    .nav-links {
-        gap: 0;
-    }
-
-    .nav-links a {
-        padding: 9px 8px;
-        font-size: 12px;
-    }
-
-    .navbar > .download-button {
-        padding: 10px;
-        font-size: 12px;
-    }
-
-    .account-actions {
-        gap: 5px;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap;
-    }
-
-    .navbar > .download-button {
-        display: none;
-    }
-
-    .account-actions {
-        gap: 7px;
-    }
-}
-/* ==========================================
-   CIBERGUARD — BARRA LATERAL
-========================================== */
-
-@media (min-width: 769px) {
-
-    body {
-        padding-left: 260px;
-    }
-
-    .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 260px;
-        height: 100vh;
-        z-index: 1000;
-        border-right: 1px solid var(--app-border);
-        border-bottom: none;
-        background: rgba(7, 17, 33, 0.97);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-    }
-
-    .navbar.container {
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        padding: 30px 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 30px;
-    }
-
-    .navbar .logo {
-        justify-content: flex-start;
-        font-size: 21px;
-        margin-bottom: 10px;
-    }
-
-    .menu-toggle {
-        display: none !important;
-    }
-
-    .nav-links {
-        display: flex !important;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 9px;
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: flex;
-        align-items: center;
-        padding: 14px 16px;
-        border-radius: 12px;
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    .nav-links a.nav-activo {
-        background: rgba(56, 189, 248, 0.13);
-        color: #38bdf8;
-    }
-
-    .nav-links a.nav-activo::after {
-        display: none;
-    }
-
-    .navbar > .download-button {
-        width: 100%;
-        margin-top: auto;
-        justify-content: center;
-    }
-
-    .account-actions {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 9px;
-        position: relative;
-    }
-
-    .account-actions .profile-button {
-        flex: 1;
-    }
-
-    .account-dropdown {
-        left: 0;
-        right: auto;
-        bottom: 100%;
-        top: auto;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-
-    main {
-        margin-left: 0;
-    }
-
-    .footer {
-        margin-left: 0;
-    }
-}
-
-/* Adaptación para móviles */
+ 
+
+html { scroll-behavior: smooth; }
+
+body { min-width: 320px; padding-left: var(--sidebar-width) !important; overflow-x: hidden; }
+
+.header { position: fixed !important; inset: 0 auto 0 0; width: var(--sidebar-width); height: 100vh; z-index: 1200; background: rgba(10, 19, 34, .97); border-right: 1px solid var(--border); backdrop-filter: blur(18px); }
+
+.navbar.container { width: 100%; max-width: none; height: 100%; margin: 0; padding: 26px 18px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 26px; }
+
+.mobile-header-top { display: flex; align-items: center; justify-content: flex-start; width: 100%; }
+
+.navbar .logo { margin: 0; font-size: 21px; }
+
+.menu-toggle { display: none !important; }
+
+.nav-links { display: flex !important; flex-direction: column; align-items: stretch; width: 100%; gap: 20px; position: static; padding: 0; margin: 0; background: transparent; border: 0; box-shadow: none; }
+
+.sidebar-controls { display: flex; flex-direction: column; gap: 17px; width: 100%; }
+
+.sidebar-controls > .download-button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 46px; border-radius: 13px; text-decoration: none; font-weight: 800; }
+
+.account-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; width: 100%; position: relative; padding: 0 0 18px; border-bottom: 1px solid var(--border); }
+
+.account-actions .theme-toggle { order: 0; }
+
+.account-actions #loginButton { order: 1; flex: 1; min-height: 42px; }
+
+.account-actions .account-avatar-button { order: 1; margin-left: auto; }
+
+.account-actions #openProfile { display: none !important; }
+
+.account-dropdown { z-index: 1500; top: calc(100% + 8px); right: 0; left: auto; width: min(300px, calc(100vw - 30px)); }
+
+.sidebar-navigation { display: flex; flex-direction: column; gap: 7px; width: 100%; }
+
+.sidebar-label { display: block; padding: 0 12px 7px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
+
+.sidebar-navigation a { display: flex; align-items: center; gap: 13px; min-height: 46px; padding: 0 13px; color: var(--muted); border: 1px solid transparent; border-radius: 12px; text-decoration: none; font-size: 13px; font-weight: 650; transition: .2s ease; }
+
+.sidebar-navigation a i { width: 19px; text-align: center; font-size: 15px; }
+
+.sidebar-navigation a:hover, .sidebar-navigation a.nav-activo { color: var(--white); background: rgba(0, 194, 168, .11); border-color: rgba(0, 194, 168, .18); }
+
+.sidebar-navigation a.nav-activo i { color: var(--turquoise); }
+
+.vista-oculta { display: none !important; }
+
+main { width: 100%; min-width: 0; }
+
+.download-section { display: none !important; }
+
+ 
 
 @media (max-width: 768px) {
 
-    body {
-        padding-left: 0;
-    }
+    :root { --sidebar-width: 0px; }
 
-    .header {
-        position: sticky;
-        top: 0;
-        width: 100%;
-        height: auto;
-    }
+    body { padding-left: 0 !important; }
 
-    .navbar.container {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 18px;
-    }
+    .header { position: sticky !important; inset: 0 0 auto 0; width: 100%; height: auto; min-height: 68px; border-right: 0; border-bottom: 1px solid var(--border); }
 
-    .navbar > .download-button {
-        display: none;
-    }
+    .navbar.container { width: 100%; height: auto; min-height: 68px; padding: 11px 16px; display: block; }
 
-    main,
-    .footer {
-        margin-left: 0;
-    }
-}
-/* ==========================================
-   AJUSTE FINAL DE LA BARRA LATERAL
-========================================== */
+    .mobile-header-top { display: flex; justify-content: space-between; align-items: center; min-height: 46px; }
 
-/* Eliminar la descarga duplicada del final */
-.download-section {
-    display: none !important;
-}
+    .navbar .logo { font-size: 19px; }
 
-@media (min-width: 769px) {
+    .menu-toggle { display: flex !important; align-items: center; justify-content: center; width: 43px; height: 43px; border: 1px solid var(--border); border-radius: 12px; color: var(--white); background: var(--surface); font-size: 19px; cursor: pointer; }
 
-    /* Orden de los elementos */
-    .navbar .logo {
-        order: 0;
-    }
+    .nav-links { display: none !important; position: fixed !important; top: 68px; left: 0; right: 0; bottom: 0; width: 100%; max-height: calc(100dvh - 68px); overflow-y: auto; padding: 20px 18px 28px; gap: 22px; background: rgba(10, 19, 34, .985); border-top: 1px solid var(--border); box-shadow: 0 18px 35px rgba(0,0,0,.28); }
 
-    .navbar .account-actions {
-        order: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 9px;
-        width: 100%;
-        margin: 0;
-    }
+    .nav-links.active { display: flex !important; }
 
-    .navbar > .download-button {
-        order: 2;
-        width: 100%;
-        margin: 0;
-    }
+    .sidebar-controls { gap: 15px; }
 
-    .navbar .nav-links {
-        order: 3;
-        margin-top: 12px;
-    }
+    .account-actions { padding-bottom: 17px; }
 
-    /* Botones de cuenta */
-    .account-actions .theme-toggle,
-    .account-actions .profile-button,
-    .account-actions .account-avatar-button {
-        width: 100%;
-        min-height: 43px;
-        justify-content: center;
-        margin: 0;
-    }
+    .account-actions .theme-toggle { width: 43px; height: 43px; }
 
-    .account-actions .account-avatar-button {
-        display: flex;
-        align-items: center;
-    }
+    .account-actions #loginButton { flex: 1; min-height: 43px; }
 
-    .account-dropdown {
-        top: 100%;
-        bottom: auto;
-        left: 0;
-        right: 0;
-        margin-top: 8px;
-        margin-bottom: 0;
-        width: 100%;
-    }
-}
-/* BOTONES ELEGANTES EN LA BARRA LATERAL */
+    .account-actions .account-avatar-button { width: 43px; height: 43px; margin-left: auto; }
 
-@media (min-width: 769px) {
+    .account-dropdown { position: absolute; top: calc(100% + 8px); right: 0; left: auto; width: min(310px, calc(100vw - 36px)); }
 
-    .navbar .account-actions {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 8px;
-        padding: 12px 0;
-        border-top: 1px solid var(--app-border);
-        border-bottom: 1px solid var(--app-border);
-    }
+    .sidebar-navigation { gap: 6px; }
 
-    .account-actions .theme-toggle {
-        width: 40px;
-        height: 40px;
-        min-height: 40px;
-        flex: 0 0 40px;
-        border-radius: 12px;
-    }
+    .sidebar-navigation a { min-height: 48px; font-size: 14px; }
 
-    .account-actions .profile-button {
-        width: auto;
-        min-height: 40px;
-        flex: 1;
-        padding: 9px 12px;
-        border-radius: 12px;
-        font-size: 12px;
-        white-space: nowrap;
-    }
+    .hero, .section, .stats-section, .cta-section { width: 100%; }
 
-    .account-actions .account-avatar-button {
-        width: 40px;
-        height: 40px;
-        min-height: 40px;
-        flex: 0 0 40px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
+    .container { width: min(100% - 32px, 680px); }
 
-    .account-actions button {
-        transition: all 0.25s ease;
-    }
-
-    .account-actions button:hover {
-        transform: translateY(-2px);
-        border-color: rgba(56, 189, 248, 0.45);
-        box-shadow: 0 5px 18px rgba(56, 189, 248, 0.10);
-    }
-
-    .account-dropdown {
-        z-index: 1100;
-    }
-}
-/* =====================================
-   CIBERGUARD — SIDEBAR PREMIUM
-===================================== */
-
-@media (min-width: 769px) {
-
-    /* ESTRUCTURA PRINCIPAL */
-    .navbar.container {
-        gap: 0;
-        padding: 32px 20px 24px;
-    }
-
-    /* LOGOTIPO */
-    .navbar .logo {
-        margin-bottom: 38px;
-        font-size: 23px;
-        letter-spacing: 1px;
-    }
-
-    /* NAVEGACIÓN */
-    .navbar .nav-links {
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-        margin-top: 0;
-        width: 100%;
-    }
-
-    .nav-links a {
-        padding: 14px 15px;
-        border-radius: 13px;
-        color: var(--text-secondary);
-        transition: all .25s ease;
-    }
-
-    .nav-links a:hover {
-        background: rgba(56, 189, 248, .08);
-        color: #38bdf8;
-        transform: translateX(4px);
-    }
-
-    .nav-links a.nav-activo {
-        background: linear-gradient(
-            110deg,
-            rgba(56, 189, 248, .19),
-            rgba(56, 189, 248, .05)
-        );
-        color: #38bdf8;
-        border: 1px solid rgba(56, 189, 248, .16);
-        box-shadow: inset 3px 0 0 #38bdf8;
-    }
-
-    /* BOTÓN APK */
-    .navbar > .download-button {
-        order: 2;
-        width: 100%;
-        margin-top: 28px;
-        padding: 13px;
-        border-radius: 13px;
-        justify-content: center;
-    }
-
-    /* CONTROLES INFERIORES */
-    .navbar .account-actions {
-        order: 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        width: 100%;
-        margin-top: auto;
-        padding-top: 20px;
-        border-top: 1px solid var(--app-border);
-    }
-
-    /* QUITAR PERFILES DUPLICADO */
-    .account-actions .profile-button {
-        display: none !important;
-    }
-
-    /* BOTÓN DE TEMA */
-    .account-actions .theme-toggle {
-        width: 44px;
-        height: 44px;
-        min-height: 44px;
-        border-radius: 13px;
-        flex: 0 0 44px;
-    }
-
-    /* INICIAR SESIÓN */
-    .account-actions #loginButton {
-        flex: 1;
-        min-height: 44px;
-        border-radius: 13px;
-        font-size: 13px;
-    }
-
-    /* AVATAR */
-    .account-actions .account-avatar-button {
-        width: 44px;
-        height: 44px;
-        min-height: 44px;
-        flex: 0 0 44px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-
-    /* OCULTAR ELEMENTOS DESACTIVADOS */
-    .account-actions [hidden] {
-        display: none !important;
-    }
-
-    /* ANIMACIONES */
-    .account-actions button,
-    .navbar > .download-button {
-        transition: all .25s ease;
-    }
-
-    .account-actions button:hover,
-    .navbar > .download-button:hover {
-        transform: translateY(-2px);
-    }
-
-    /* MENÚ DE CUENTA */
-    .account-dropdown {
-        left: 0;
-        right: 0;
-        top: auto;
-        bottom: 100%;
-        width: 100%;
-        margin-bottom: 12px;
-        z-index: 1100;
-    }
-}
-/* =====================================
-   CIBERGUARD — SIDEBAR PREMIUM
-===================================== */
-
-@media (min-width: 769px) {
-
-    .navbar.container {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 0;
-        padding: 30px 20px;
-    }
-
-    /* LOGO */
-    .navbar .logo {
-        order: 0;
-        margin: 0 0 28px;
-        font-size: 23px;
-        letter-spacing: 1px;
-    }
-
-    /* CONTROLES SUPERIORES */
-    .navbar .account-actions {
-        order: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 9px;
-        width: 100%;
-        margin: 0 0 12px;
-        padding: 14px 0;
-        border-top: 1px solid var(--app-border);
-        border-bottom: 1px solid var(--app-border);
-    }
-
-    /* DESCARGAR APK */
-    .navbar > .download-button {
-        order: 2;
-        width: 100%;
-        min-height: 44px;
-        margin: 0 0 22px;
-        padding: 12px;
-        justify-content: center;
-        border-radius: 13px;
-    }
-
-    /* TEMA */
-    .account-actions .theme-toggle {
-        width: 43px;
-        height: 43px;
-        min-height: 43px;
-        flex: 0 0 43px;
-        border-radius: 13px;
-    }
-
-    /* INICIAR SESIÓN */
-    .account-actions #loginButton {
-        flex: 1;
-        min-height: 43px;
-        border-radius: 13px;
-        font-size: 12px;
-    }
-
-    /* CUENTA */
-    .account-actions .account-avatar-button {
-        width: 43px;
-        height: 43px;
-        min-height: 43px;
-        flex: 0 0 43px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-
-    /* EVITAR ELEMENTOS OCULTOS */
-    .account-actions [hidden] {
-        display: none !important;
-    }
-
-    /* QUITAR PERFILES DUPLICADO */
-    .account-actions .profile-button {
-        display: none !important;
-    }
-
-    /* NAVEGACIÓN */
-    .navbar .nav-links {
-        order: 3;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 7px;
-        width: 100%;
-        margin: 0;
-        padding-top: 5px;
-    }
-
-    .nav-links a {
-        padding: 14px 15px;
-        border-radius: 12px;
-        color: var(--text-secondary);
-        transition: all .25s ease;
-    }
-
-    .nav-links a:hover {
-        background: rgba(56, 189, 248, .08);
-        color: #38bdf8;
-        transform: translateX(4px);
-    }
-
-    .nav-links a.nav-activo {
-        background: rgba(56, 189, 248, .13);
-        color: #38bdf8;
-        box-shadow: inset 3px 0 0 #38bdf8;
-    }
-
-    .nav-links a.nav-activo::after {
-        display: none;
-    }
-
-    /* MENÚ DE CUENTA */
-    .account-dropdown {
-        left: 0;
-        right: 0;
-        top: 100%;
-        bottom: auto;
-        width: 100%;
-        margin-top: 8px;
-        z-index: 1100;
-    }
-
-    /* ANIMACIONES */
-    .account-actions button,
-    .navbar > .download-button {
-        transition: all .25s ease;
-    }
-
-    .account-actions button:hover,
-    .navbar > .download-button:hover {
-        transform: translateY(-2px);
-    }
-}
-/* TRANSICIONES ENTRE SECCIONES */
-
-main .hero,
-main .section,
-main .stats-section,
-main .cta-section {
-    animation: entradaSeccion .35s ease both;
 }
 
-@keyframes entradaSeccion {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+ 
 
-html {
-    scroll-behavior: smooth;
-}
-/* =================================
-   CIBERGUARD — OPTIMIZACIÓN MÓVIL
-================================= */
+@media (max-width: 380px) {
 
-@media (max-width: 768px) {
+    .navbar.container { padding-inline: 12px; }
 
-    body {
-        padding-left: 0 !important;
-        overflow-x: hidden;
-    }
+    .nav-links { padding-inline: 14px; }
 
-    .header {
-        position: sticky !important;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        z-index: 1000;
-    }
+    .sidebar-controls > .download-button { font-size: 12px; }
 
-    .navbar.container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 12px 18px;
-    }
-
-    .navbar .logo {
-        order: 0;
-        margin: 0;
-        font-size: 19px;
-    }
-
-    .menu-toggle {
-        display: flex !important;
-        order: 1;
-    }
-
-    /* CONTROLES SUPERIORES */
-    .navbar .account-actions {
-        order: 2;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 9px;
-        width: 100%;
-        margin: 0;
-        padding: 10px 0 0;
-    }
-
-    .account-actions .profile-button {
-        display: none !important;
-    }
-
-    .account-actions .theme-toggle {
-        width: 43px;
-        height: 43px;
-        min-height: 43px;
-    }
-
-    .account-actions #loginButton {
-        min-height: 43px;
-        flex: 1;
-    }
-
-    .account-actions .account-avatar-button {
-        width: 43px;
-        height: 43px;
-        min-height: 43px;
-    }
-
-    .account-actions [hidden] {
-        display: none !important;
-    }
-
-    /* DESCARGA */
-    .navbar > .download-button {
-        order: 3;
-        display: flex !important;
-        width: 100%;
-        margin: 0;
-        justify-content: center;
-    }
-
-    /* MENÚ DESPLEGABLE */
-    .navbar .nav-links {
-        order: 4;
-        display: none !important;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 5px;
-        width: 100%;
-        margin: 0;
-        padding: 12px;
-        background: var(--app-card);
-        border: 1px solid var(--app-border);
-        border-radius: 15px;
-    }
-
-    .navbar .nav-links.active {
-        display: flex !important;
-    }
-
-    .nav-links a {
-        width: 100%;
-        padding: 13px 15px;
-        text-align: left;
-        border-radius: 10px;
-    }
-
-    main,
-    .footer {
-        margin-left: 0 !important;
-        width: 100%;
-    }
 }
