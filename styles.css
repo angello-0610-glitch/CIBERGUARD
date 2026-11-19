@@ -1,9 +1,10 @@
-/* ======================================================
-   CIBERGUARD - HOJA DE ESTILOS PRINCIPAL
-   Diseño adaptable para PC, tablets y celulares
-====================================================== */
+﻿
+/* =========================================================
+   CIBERGUARD — HOJA DE ESTILOS PRINCIPAL
+   Diseño profesional para PC, tablets y celulares
+   ========================================================= */
 
-/* 1. VARIABLES GENERALES */
+/* 1. VARIABLES */
 
 :root {
     --bg: #0B1220;
@@ -14,12 +15,14 @@
     --blue: #397BFA;
     --white: #F4F7FB;
     --muted: #A5B4C8;
-    --border: rgba(165, 180, 200, 0.14);
+    --border: rgba(165, 180, 200, .14);
     --gradient: linear-gradient(120deg, #00C2A8, #397BFA);
     --success: #22C55E;
     --danger: #FF6464;
     --warning: #FBBF24;
     --shadow: 0 18px 45px rgba(0, 0, 0, .25);
+    --sidebar-width: 264px;
+    --radius: 14px;
 }
 
 /* 2. CONFIGURACIÓN GENERAL */
@@ -32,22 +35,21 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 30px;
 }
 
 body {
+    min-width: 320px;
+    padding-left: var(--sidebar-width);
+    overflow-x: hidden;
     font-family: "Inter", sans-serif;
     background: var(--bg);
     color: var(--white);
     line-height: 1.6;
-    overflow-x: hidden;
     transition: background .25s, color .25s;
 }
 
-button,
-input,
-select,
-textarea {
+button, input, select, textarea {
     font: inherit;
 }
 
@@ -71,166 +73,19 @@ img {
     max-width: 100%;
 }
 
-[hidden] {
+[hidden],
+.vista-oculta {
     display: none !important;
 }
 
 .container {
     width: min(1160px, 90%);
-    margin: 0 auto;
+    margin-inline: auto;
 }
 
-/* 3. ENCABEZADO Y NAVEGACIÓN */
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(11, 18, 32, .96);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-    min-height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    white-space: nowrap;
-}
-
-.logo > span:last-child > span {
-    color: var(--turquoise);
-}
-
-.logo-icon {
-    width: 39px;
-    height: 39px;
-    display: grid;
-    place-items: center;
-    background: var(--gradient);
-    color: white;
-    border-radius: 12px;
-}
-
-.logo-icon i {
-    color: white;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 23px;
-}
-
-.nav-links a {
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 600;
-    transition: color .25s;
-}
-
-.nav-links a:hover {
-    color: var(--turquoise);
-}
-
-.account-actions {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
-
-.profile-button {
-    padding: 10px 13px;
-    color: var(--white);
-    background: transparent;
-    border: 1px solid var(--turquoise);
-    border-radius: 9px;
-    font-size: 12px;
-    font-weight: 600;
-    transition: .25s;
-}
-
-.profile-button:hover {
-    background: rgba(0, 194, 168, .12);
-}
-
-.theme-toggle {
-    width: 39px;
-    height: 39px;
-    display: grid;
-    place-items: center;
-    color: var(--white);
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    transition: .25s;
-}
-
-.theme-toggle:hover {
-    color: var(--turquoise);
-    border-color: var(--turquoise);
-}
-
-.menu-toggle {
-    display: none;
-    border: 0;
-    background: transparent;
-    color: var(--white);
-    font-size: 23px;
-}
-
-/* 4. BOTONES GENERALES */
-
-.btn {
-    min-height: 46px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 12px 20px;
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 700;
-    border: 1px solid transparent;
-    transition: transform .25s, background .25s, border-color .25s;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-.btn-primary {
-    background: var(--gradient);
-    color: white;
-}
-
-.btn-outline {
-    border-color: var(--border);
-    color: var(--white);
-    background: transparent;
-}
-
-.btn-outline:hover {
-    border-color: var(--turquoise);
-    background: rgba(0, 194, 168, .08);
-}
-
-.btn-light {
-    flex-shrink: 0;
-    color: #0B1220;
-    background: white;
+main {
+    width: 100%;
+    min-width: 0;
 }
 
 button:focus-visible,
@@ -242,7 +97,289 @@ textarea:focus-visible {
     outline-offset: 3px;
 }
 
-/* 5. SECCIONES Y TÍTULOS */
+::selection {
+    color: #fff;
+    background: #087F75;
+}
+
+/* 3. BARRA LATERAL DE ESCRITORIO */
+
+.header {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 1200;
+    width: var(--sidebar-width);
+    height: 100vh;
+    height: 100dvh;
+    overflow: visible;
+    background: rgba(10, 19, 34, .98);
+    border-right: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.navbar.container {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 27px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 27px;
+}
+
+.mobile-header-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo > span:last-child > span {
+    color: var(--turquoise);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: var(--gradient);
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0, 194, 168, .18);
+}
+
+.logo-icon i {
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* 4. CONTENEDOR DE NAVEGACIÓN */
+
+.nav-links {
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 23px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.sidebar-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sidebar-controls > .download-button {
+    width: 100%;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 11px 14px;
+    color: #fff;
+    background: var(--gradient);
+    border: 0;
+    border-radius: 11px;
+    font-size: 12px;
+    font-weight: 800;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.sidebar-controls > .download-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 194, 168, .2);
+}
+
+.account-actions {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid var(--border);
+}
+
+.account-actions .theme-toggle {
+    order: 0;
+}
+
+.account-actions #loginButton {
+    order: 1;
+    flex: 1;
+    min-height: 42px;
+}
+
+.account-actions .account-avatar-button {
+    order: 1;
+    margin-left: auto;
+}
+
+.account-actions #openProfile {
+    display: none !important;
+}
+
+.profile-button {
+    padding: 10px 13px;
+    color: var(--white);
+    background: transparent;
+    border: 1px solid var(--turquoise);
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background .2s, border-color .2s;
+}
+
+.profile-button:hover {
+    background: rgba(0, 194, 168, .12);
+}
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: .2s;
+}
+
+.theme-toggle:hover {
+    color: var(--turquoise);
+    border-color: var(--turquoise);
+}
+
+.sidebar-navigation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.sidebar-label {
+    display: block;
+    padding: 0 12px 7px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.sidebar-navigation a {
+    min-height: 47px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 0 13px;
+    color: var(--muted);
+    border: 1px solid transparent;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 650;
+    transition: color .2s, background .2s, border-color .2s;
+}
+
+.sidebar-navigation a i {
+    width: 19px;
+    flex-shrink: 0;
+    color: var(--muted);
+    text-align: center;
+    font-size: 15px;
+}
+
+.sidebar-navigation a:hover,
+.sidebar-navigation a.nav-activo {
+    color: var(--white);
+    background: rgba(0, 194, 168, .11);
+    border-color: rgba(0, 194, 168, .18);
+}
+
+.sidebar-navigation a:hover i,
+.sidebar-navigation a.nav-activo i {
+    color: var(--turquoise);
+}
+
+.download-section {
+    display: none !important;
+}
+
+/* 5. BOTONES GENERALES */
+
+.btn {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    color: var(--white);
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform .2s, background .2s, border-color .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    color: #fff;
+    background: var(--gradient);
+}
+
+.btn-outline {
+    color: var(--white);
+    background: transparent;
+    border-color: var(--border);
+}
+
+.btn-outline:hover {
+    background: rgba(0, 194, 168, .08);
+    border-color: var(--turquoise);
+}
+
+.btn-light {
+    flex-shrink: 0;
+    color: #0B1220;
+    background: #fff;
+}
+
+/* 6. SECCIONES Y TÍTULOS */
 
 .section {
     padding: 95px 0;
@@ -282,7 +419,7 @@ textarea:focus-visible {
     font-size: 14px;
 }
 
-/* 6. PORTADA */
+/* 7. PORTADA */
 
 .hero {
     position: relative;
@@ -361,11 +498,11 @@ textarea:focus-visible {
 }
 
 .security-circle {
+    position: relative;
     width: 310px;
     height: 310px;
     display: grid;
     place-items: center;
-    position: relative;
     border: 1px solid rgba(0, 194, 168, .35);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(0, 194, 168, .12), transparent 68%);
@@ -404,8 +541,8 @@ textarea:focus-visible {
     width: 190px;
     height: 190px;
     object-fit: cover;
-    border-radius: 50%;
     border: 2px solid rgba(0, 194, 168, .65);
+    border-radius: 50%;
     box-shadow: 0 0 35px rgba(0, 194, 168, .35);
 }
 
@@ -435,8 +572,8 @@ textarea:focus-visible {
 }
 
 .icon-three {
-    bottom: 5px;
     right: 5px;
+    bottom: 5px;
 }
 
 .security-message {
@@ -457,16 +594,11 @@ textarea:focus-visible {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
-/* 7. ESTADÍSTICAS */
+/* 8. ESTADÍSTICAS */
 
 .stats-section {
     padding: 32px 0;
@@ -502,7 +634,7 @@ textarea:focus-visible {
     font-size: 11px;
 }
 
-/* 8. BUSCADOR */
+/* 9. BUSCADOR */
 
 .search-row {
     max-width: 650px;
@@ -529,7 +661,8 @@ textarea:focus-visible {
     font-size: 13px;
 }
 
-.search-row input::placeholder {
+.search-row input::placeholder,
+.auth-box input::placeholder {
     color: var(--muted);
 }
 
@@ -543,15 +676,16 @@ textarea:focus-visible {
     text-align: center;
 }
 
-/* 9. TARJETAS EDUCATIVAS */
+/* 10. TARJETAS EDUCATIVAS */
 
 .learning-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
 
 .learning-card {
+    min-width: 0;
     overflow: hidden;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -607,7 +741,7 @@ textarea:focus-visible {
     font-weight: 700;
 }
 
-/* 10. CONTENIDO EDUCATIVO */
+/* 11. CONTENIDO EDUCATIVO */
 
 .content-section,
 .games-section {
@@ -616,7 +750,7 @@ textarea:focus-visible {
 
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
 }
 
@@ -630,9 +764,9 @@ textarea:focus-visible {
 }
 
 .content-icon {
-    flex-shrink: 0;
     width: 47px;
     height: 47px;
+    flex-shrink: 0;
     display: grid;
     place-items: center;
     color: var(--turquoise);
@@ -651,15 +785,16 @@ textarea:focus-visible {
     font-size: 12px;
 }
 
-/* 11. VIDEOS */
+/* 12. VIDEOS */
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
 
 .video-card {
+    min-width: 0;
     overflow: hidden;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -700,7 +835,7 @@ textarea:focus-visible {
     display: grid;
     place-items: center;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #fff;
     background: var(--turquoise);
     border-radius: 50%;
 }
@@ -719,7 +854,7 @@ textarea:focus-visible {
     font-size: 12px;
 }
 
-/* 12. JUEGOS */
+/* 13. JUEGOS */
 
 .games-grid {
     display: grid;
@@ -727,8 +862,11 @@ textarea:focus-visible {
     gap: 22px;
 }
 
-.game-card {
+.games-grid .game-card {
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     padding: 28px;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -736,7 +874,7 @@ textarea:focus-visible {
     transition: transform .25s, border-color .25s, box-shadow .25s;
 }
 
-.game-card:hover {
+.games-grid .game-card:hover {
     transform: translateY(-5px);
     border-color: var(--turquoise);
     box-shadow: 0 12px 30px rgba(0, 194, 168, .08);
@@ -760,6 +898,7 @@ textarea:focus-visible {
 }
 
 .game-card p {
+    flex-grow: 1;
     min-height: 62px;
     margin-bottom: 20px;
     color: var(--muted);
@@ -771,7 +910,7 @@ textarea:focus-visible {
     border: 0;
 }
 
-/* Área principal del juego */
+/* Área de juego */
 
 .game-area {
     margin-top: 30px;
@@ -784,6 +923,15 @@ textarea:focus-visible {
 
 .game-area[hidden] {
     display: none !important;
+}
+
+.game-area,
+.game-area * {
+    overflow-wrap: break-word;
+}
+
+.game-area button {
+    font-family: inherit;
 }
 
 .game-area-header {
@@ -799,9 +947,9 @@ textarea:focus-visible {
 }
 
 .close-button {
-    flex-shrink: 0;
     width: 37px;
     height: 37px;
+    flex-shrink: 0;
     display: grid;
     place-items: center;
     color: var(--muted);
@@ -848,11 +996,12 @@ textarea:focus-visible {
     width: 100%;
     min-height: 48px;
     padding: 14px 16px;
-    text-align: left;
     color: var(--white);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 9px;
+    text-align: left;
+    line-height: 1.5;
     transition: background .2s, border-color .2s, transform .2s;
 }
 
@@ -869,16 +1018,18 @@ textarea:focus-visible {
 
 .game-option.correct,
 .game-option.correct-answer {
-    color: #FFFFFF;
+    color: #fff;
     background: rgba(34, 197, 94, .18);
     border-color: var(--success);
+    box-shadow: 0 0 12px rgba(34, 197, 94, .08);
 }
 
 .game-option.incorrect,
 .game-option.wrong-answer {
-    color: #FFFFFF;
+    color: #fff;
     background: rgba(255, 100, 100, .16);
     border-color: var(--danger);
+    box-shadow: 0 0 12px rgba(255, 100, 100, .08);
 }
 
 .game-feedback {
@@ -925,7 +1076,21 @@ textarea:focus-visible {
     margin: 5px;
 }
 
-/* Barra visual del tiempo, si el juego la utiliza */
+.game-area .btn {
+    margin-top: 10px;
+}
+
+.game-area .btn-primary {
+    min-width: 145px;
+}
+
+.game-score,
+.game-xp {
+    color: var(--turquoise);
+    font-weight: 800;
+}
+
+/* Temporizador */
 
 .game-timer {
     display: flex;
@@ -937,12 +1102,13 @@ textarea:focus-visible {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
+    font-variant-numeric: tabular-nums;
 }
 
 .game-timer strong {
     color: var(--turquoise);
     font-size: 18px;
-    font-variant-numeric: tabular-nums;
+    font-weight: 800;
 }
 
 .game-timer.warning strong {
@@ -955,12 +1121,10 @@ textarea:focus-visible {
 }
 
 @keyframes timerPulse {
-    50% {
-        opacity: .5;
-    }
+    50% { opacity: .5; }
 }
 
-/* 13. PERFILES */
+/* 14. PERFILES */
 
 .profiles-section {
     background: var(--bg);
@@ -968,7 +1132,7 @@ textarea:focus-visible {
 
 .profiles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
 
@@ -1019,11 +1183,11 @@ textarea:focus-visible {
     font-weight: 700;
 }
 
-/* 14. PANEL DE USUARIO */
+/* 15. PANEL DE USUARIO */
 
 .user-dashboard {
-    padding: 25px;
     margin-top: 25px;
+    padding: 25px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 15px;
@@ -1045,18 +1209,19 @@ textarea:focus-visible {
 
 .dashboard-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
     margin: 20px 0;
 }
 
 .dashboard-stat {
+    min-width: 0;
     padding: 16px;
+    overflow-wrap: anywhere;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: 10px;
     text-align: center;
-    overflow-wrap: anywhere;
 }
 
 .dashboard-stat strong {
@@ -1070,7 +1235,7 @@ textarea:focus-visible {
     font-size: 11px;
 }
 
-/* 15. NOSOTROS */
+/* 16. NOSOTROS */
 
 .about-section {
     background: var(--bg-secondary);
@@ -1085,14 +1250,15 @@ textarea:focus-visible {
 
 .about-image {
     position: relative;
+    min-width: 0;
 }
 
 .about-image img {
     width: 100%;
     height: 390px;
     object-fit: cover;
-    border-radius: 17px;
     border: 1px solid var(--border);
+    border-radius: 17px;
 }
 
 .about-badge {
@@ -1123,7 +1289,7 @@ textarea:focus-visible {
     margin-top: 10px;
 }
 
-/* 16. LLAMADO A LA ACCIÓN */
+/* 17. LLAMADO A LA ACCIÓN */
 
 .cta-section {
     padding: 65px 0;
@@ -1149,9 +1315,10 @@ textarea:focus-visible {
     font-size: 13px;
 }
 
-/* 17. PIE DE PÁGINA */
+/* 18. PIE DE PÁGINA */
 
 .footer {
+    width: 100%;
     padding: 35px 0;
     background: #080E19;
     border-top: 1px solid var(--border);
@@ -1176,11 +1343,11 @@ textarea:focus-visible {
     text-align: center;
 }
 
-/* 18. MODAL DE PERFILES */
+/* 19. MODAL DE PERFILES */
 
 .modal {
     position: fixed;
-    z-index: 300;
+    z-index: 3000;
     inset: 0;
     display: none;
     align-items: center;
@@ -1242,17 +1409,17 @@ textarea:focus-visible {
 }
 
 .profile-option {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 13px;
-    width: 100%;
     padding: 14px;
     color: var(--white);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 9px;
     text-align: left;
-    transition: .25s;
+    transition: .2s;
 }
 
 .profile-option:hover,
@@ -1272,7 +1439,7 @@ textarea:focus-visible {
     font-size: 10px;
 }
 
-/* 19. MODAL DE AUTENTICACIÓN */
+/* 20. MODAL DE AUTENTICACIÓN */
 
 .auth-modal {
     position: fixed;
@@ -1324,6 +1491,7 @@ textarea:focus-visible {
 .auth-box input,
 .auth-box select {
     width: 100%;
+    min-height: 45px;
     padding: 13px 14px;
     color: var(--white);
     background: var(--bg);
@@ -1335,10 +1503,6 @@ textarea:focus-visible {
 .auth-box input:focus,
 .auth-box select:focus {
     border-color: var(--turquoise);
-}
-
-.auth-box input::placeholder {
-    color: #8292A8;
 }
 
 .auth-box select option {
@@ -1392,23 +1556,23 @@ textarea:focus-visible {
     text-align: center;
 }
 
-/* 20. VENTANA DE INFORMACIÓN DE LOS TEMAS */
+/* 21. VENTANA DE INFORMACIÓN DE TEMAS */
 
 .topic-modal {
-    display: none;
     position: fixed;
-    inset: 0;
     z-index: 9999;
-    background: rgba(3, 9, 20, .88);
-    backdrop-filter: blur(8px);
+    inset: 0;
+    display: none;
     padding: 25px;
     overflow-y: auto;
+    background: rgba(3, 9, 20, .88);
+    backdrop-filter: blur(8px);
 }
 
 .topic-modal.active {
     display: flex;
-    justify-content: center;
     align-items: flex-start;
+    justify-content: center;
 }
 
 .topic-modal-content {
@@ -1417,10 +1581,10 @@ textarea:focus-visible {
     max-width: 850px;
     margin: 35px auto;
     padding: 40px;
+    color: #F4F7FB;
+    background: #14243B;
     border: 1px solid rgba(0, 194, 168, .3);
     border-radius: 20px;
-    background: #14243B;
-    color: #F4F7FB;
     box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
 }
 
@@ -1428,7 +1592,7 @@ textarea:focus-visible {
     position: absolute;
     top: 15px;
     right: 20px;
-    border: none;
+    border: 0;
     background: transparent;
     color: #A5B4C8;
     font-size: 35px;
@@ -1440,21 +1604,21 @@ textarea:focus-visible {
 }
 
 .topic-content h2 {
+    margin: 15px 0;
     color: #00C2A8;
     font-size: 30px;
-    margin: 15px 0;
 }
 
 .topic-content h3 {
-    color: #397BFA;
     margin: 25px 0 10px;
+    color: #397BFA;
 }
 
 .topic-content p,
 .topic-content li {
     color: #D5DFED;
-    line-height: 1.8;
     font-size: 15px;
+    line-height: 1.8;
 }
 
 .topic-content ul {
@@ -1464,9 +1628,9 @@ textarea:focus-visible {
 .topic-label {
     display: inline-block;
     padding: 7px 13px;
-    border-radius: 20px;
-    background: rgba(0, 194, 168, .12);
     color: #00C2A8;
+    background: rgba(0, 194, 168, .12);
+    border-radius: 20px;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -1489,22 +1653,21 @@ textarea:focus-visible {
 }
 
 .topic-quiz button {
-    display: block;
     width: 100%;
+    display: block;
     margin-top: 10px;
     padding: 13px;
+    color: #F4F7FB;
+    background: #0B1220;
     border: 1px solid rgba(165, 180, 200, .25);
     border-radius: 8px;
-    background: #0B1220;
-    color: #F4F7FB;
     text-align: left;
-    cursor: pointer;
     transition: .2s;
 }
 
 .topic-quiz button:hover {
-    border-color: #00C2A8;
     background: rgba(0, 194, 168, .12);
+    border-color: #00C2A8;
 }
 
 .topic-quiz button:disabled {
@@ -1517,7 +1680,363 @@ textarea:focus-visible {
     font-weight: bold;
 }
 
-/* 21. MODO CLARO */
+/* 22. MENÚ DE CUENTA */
+
+.account-avatar-button {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 0;
+    color: #fff;
+    background: var(--surface);
+    border: 2px solid var(--turquoise);
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.account-avatar-button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 15px rgba(0, 194, 168, .3);
+}
+
+.account-avatar-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.account-avatar-button span {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: var(--turquoise);
+    font-size: 18px;
+}
+
+.account-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 5000;
+    width: 290px;
+    padding: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .4);
+    animation: accountMenuAppear .2s ease;
+}
+
+.account-dropdown[hidden],
+.account-avatar-button[hidden],
+.account-avatar-button img[hidden],
+.account-avatar-button span[hidden] {
+    display: none !important;
+}
+
+.account-dropdown:not([hidden]) {
+    display: block;
+}
+
+@keyframes accountMenuAppear {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.account-dropdown-header {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow: hidden;
+    padding: 13px 12px 16px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid var(--border);
+}
+
+.account-dropdown-header strong {
+    color: var(--white);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.account-dropdown-header span {
+    color: var(--muted);
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.account-dropdown > button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    color: var(--white);
+    background: transparent;
+    border: 0;
+    border-radius: 9px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    appearance: none;
+    transition: .2s;
+}
+
+.account-dropdown > button:hover {
+    color: var(--turquoise);
+    background: rgba(0, 194, 168, .09);
+}
+
+.account-dropdown > button i {
+    width: 18px;
+    color: var(--turquoise);
+    text-align: center;
+    font-size: 15px;
+}
+
+.account-dropdown-divider {
+    height: 1px;
+    margin: 8px 4px;
+    background: var(--border);
+}
+
+.account-dropdown > .logout-menu-button,
+.account-dropdown > .logout-menu-button i {
+    color: #FF8585;
+}
+
+.account-dropdown > .logout-menu-button:hover {
+    color: #FF6B6B;
+    background: rgba(255, 80, 80, .09);
+}
+
+.account-dropdown > button:focus-visible,
+.account-avatar-button:focus-visible {
+    outline: 2px solid var(--turquoise);
+    outline-offset: 3px;
+}
+
+/* 23. MODAL DE AVATARES */
+
+.avatar-modal-box {
+    width: min(520px, 100%);
+}
+
+.avatar-modal-box > h2 {
+    margin-top: 12px;
+}
+
+.avatar-modal-box > h3 {
+    margin: 23px 0 14px;
+    font-size: 15px;
+}
+
+.avatar-preview {
+    width: 105px;
+    height: 105px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    margin: 22px auto;
+    color: var(--turquoise);
+    background: var(--surface);
+    border: 3px solid var(--turquoise);
+    border-radius: 50%;
+    box-shadow: 0 0 25px rgba(0, 194, 168, .16);
+}
+
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-preview span {
+    font-size: 38px;
+}
+
+.avatar-gallery {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin: 18px 0 25px;
+}
+
+.avatar-option {
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    color: var(--turquoise);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 22px;
+    transition: .2s;
+}
+
+.avatar-option:hover {
+    transform: translateY(-3px);
+    border-color: var(--turquoise);
+    background: rgba(0, 194, 168, .1);
+}
+
+.avatar-option.selected {
+    color: #fff;
+    background: rgba(0, 194, 168, .2);
+    border: 2px solid var(--turquoise);
+    box-shadow: 0 0 12px rgba(0, 194, 168, .2);
+}
+
+.avatar-upload-area {
+    padding: 18px;
+    margin-bottom: 17px;
+    background: var(--surface);
+    border: 1px dashed rgba(0, 194, 168, .45);
+    border-radius: 12px;
+}
+
+.avatar-upload-area label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--turquoise);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.avatar-upload-area label:hover {
+    color: var(--white);
+}
+
+.avatar-upload-area label i {
+    font-size: 19px;
+}
+
+.avatar-upload-area p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 10px;
+    text-align: center;
+}
+
+.avatar-modal-box > .btn {
+    width: 100%;
+}
+
+/* 24. MODAL DE DATOS DE CUENTA */
+
+.account-details-content {
+    display: grid;
+    gap: 12px;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.account-details-content > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.account-details-content span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.account-details-content strong {
+    color: var(--white);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+/* 25. PERSONALIZACIÓN DE EXPERIENCIA */
+
+.experience-options {
+    display: grid;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.experience-options label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.experience-options label > span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.experience-options strong {
+    color: var(--white);
+    font-size: 12px;
+}
+
+.experience-options small {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.experience-options input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: var(--turquoise);
+    cursor: pointer;
+}
+
+#saveExperienceButton {
+    width: 100%;
+}
+
+/* 26. BARRAS DE DESPLAZAMIENTO */
+
+.modal-box,
+.auth-box,
+.topic-modal-content,
+.nav-links {
+    scrollbar-width: thin;
+    scrollbar-color: var(--turquoise) transparent;
+}
+
+.modal-box::-webkit-scrollbar,
+.auth-box::-webkit-scrollbar,
+.topic-modal-content::-webkit-scrollbar,
+.nav-links::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-box::-webkit-scrollbar-thumb,
+.auth-box::-webkit-scrollbar-thumb,
+.topic-modal-content::-webkit-scrollbar-thumb,
+.nav-links::-webkit-scrollbar-thumb {
+    background: var(--turquoise);
+    border-radius: 10px;
+}
+
+/* 27. MODO CLARO */
 
 body.light-mode {
     --bg: #F2F6FB;
@@ -1530,10 +2049,11 @@ body.light-mode {
     --success: #16803D;
     --danger: #D93636;
     --warning: #B77900;
+    --shadow: 0 18px 45px rgba(20, 36, 59, .10);
 }
 
 body.light-mode .header {
-    background: rgba(242, 246, 251, .95);
+    background: rgba(242, 246, 251, .98);
 }
 
 body.light-mode .footer {
@@ -1546,8 +2066,8 @@ body.light-mode .topic-modal {
 }
 
 body.light-mode .topic-modal-content {
-    background: #FFFFFF;
     color: #14243B;
+    background: #fff;
 }
 
 body.light-mode .topic-content p,
@@ -1556,8 +2076,8 @@ body.light-mode .topic-content li {
 }
 
 body.light-mode .topic-quiz button {
-    background: #F2F6FB;
     color: #14243B;
+    background: #F2F6FB;
 }
 
 body.light-mode .game-area {
@@ -1578,41 +2098,79 @@ body.light-mode .game-option.wrong-answer {
     color: #7F1D1D;
 }
 
-/* 22. RESPONSIVE: TABLETS */
+body.light-mode .account-dropdown {
+    box-shadow: 0 18px 45px rgba(20, 36, 59, .16);
+}
 
-@media (max-width: 1050px) {
-    .navbar {
-        gap: 12px;
+body.light-mode .account-avatar-button {
+    color: var(--white);
+}
+
+body.light-mode .account-dropdown-header strong {
+    color: var(--white);
+}
+
+body.light-mode .account-dropdown-header span {
+    color: var(--muted);
+}
+
+body.light-mode .nav-links {
+    background: var(--bg-secondary);
+}
+
+body.light-mode .sidebar-navigation a:hover,
+body.light-mode .sidebar-navigation a.nav-activo {
+    color: var(--white);
+    background: rgba(0, 160, 140, .10);
+}
+
+body.light-mode .menu-toggle {
+    color: var(--white);
+    background: var(--surface);
+}
+
+/* 28. TABLETS Y PORTÁTILES */
+
+@media (max-width: 1100px) and (min-width: 769px) {
+    :root {
+        --sidebar-width: 235px;
     }
 
-    .nav-links {
-        gap: 13px;
+    .navbar.container {
+        padding-inline: 15px;
     }
 
-    .nav-links a {
-        font-size: 11px;
+    .logo {
+        font-size: 19px;
     }
 
-    .profile-button {
-        padding: 9px 10px;
-        font-size: 11px;
-    }
-
-    .account-actions {
-        gap: 6px;
+    .sidebar-navigation a {
+        min-height: 44px;
+        font-size: 12px;
     }
 
     .hero-content {
-        gap: 15px;
+        gap: 18px;
     }
 
     .hero h1 {
-        font-size: 49px;
+        font-size: clamp(39px, 4.5vw, 51px);
+    }
+
+    .security-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .main-shield {
+        width: 165px;
+        height: 165px;
     }
 
     .learning-grid,
     .video-grid,
-    .games-grid {
+    .games-grid,
+    .profiles-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1621,68 +2179,289 @@ body.light-mode .game-option.wrong-answer {
     }
 }
 
-/* 23. RESPONSIVE: CELULARES */
+/* 29. TABLETS VERTICALES Y CELULARES */
 
-@media (max-width: 760px) {
-    .navbar {
-        min-height: 70px;
-        flex-wrap: wrap;
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 0px;
     }
 
-    .logo {
-        font-size: 18px;
+    html {
+        scroll-padding-top: 75px;
     }
 
-    .menu-toggle {
-        display: block;
-        margin-left: auto;
+    body {
+        padding-left: 0 !important;
+        overflow-x: hidden;
+    }
+
+    /* Encabezado superior */
+
+    .header {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 68px !important;
+        min-height: 68px !important;
+        z-index: 1200 !important;
+        overflow: visible !important;
+        background: var(--bg-secondary);
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        transform: none !important;
+        filter: none !important;
+        contain: none !important;
+    }
+
+    .navbar.container {
+        position: relative !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: 68px !important;
+        min-height: 68px !important;
+        margin: 0 !important;
+        padding: 10px 16px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px;
+    }
+
+    .mobile-header-top {
+        width: 100% !important;
+        min-height: 46px;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .navbar .logo {
+        font-size: 19px;
+    }
+
+    /* Botón de menú */
+
+    .menu-toggle,
+    #menuToggle {
+        width: 43px !important;
+        height: 43px !important;
+        flex: 0 0 43px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        z-index: 1202 !important;
+        padding: 0;
+        color: var(--white) !important;
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 12px !important;
+        font-size: 19px;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Panel lateral móvil */
+
+    .nav-links,
+    #navLinks {
+        position: fixed !important;
+        top: 68px !important;
+        right: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: min(300px, 86vw) !important;
+        max-width: 300px !important;
+        height: calc(100vh - 68px) !important;
+        height: calc(100dvh - 68px) !important;
+        max-height: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 21px !important;
+        margin: 0 !important;
+        padding: 22px 16px 30px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        background: var(--bg-secondary) !important;
+        border: 0 !important;
+        border-right: 1px solid var(--border) !important;
+        border-radius: 0 16px 16px 0 !important;
+        box-shadow: 12px 0 35px rgba(0, 0, 0, .30) !important;
+        transform: translateX(-105%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: transform .28s ease, visibility .28s ease !important;
+        z-index: 1201 !important;
+    }
+
+    .nav-links.active,
+    #navLinks.active {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* Fondo oscuro detrás del panel */
+
+    .sidebar-backdrop,
+    #sidebarBackdrop {
+        display: none !important;
+        position: fixed !important;
+        inset: 68px 0 0 0 !important;
+        width: 100vw !important;
+        height: calc(100vh - 68px) !important;
+        height: calc(100dvh - 68px) !important;
+        padding: 0 !important;
+        background: rgba(0, 0, 0, .56) !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        z-index: 1190 !important;
+    }
+
+    .sidebar-backdrop.active,
+    #sidebarBackdrop.active {
+        display: block !important;
+    }
+
+    /* Controles de la barra lateral */
+
+    .sidebar-controls {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .sidebar-controls > .download-button {
+        width: 100% !important;
+        min-height: 46px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .account-actions {
-        order: 3;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 9px !important;
+        padding: 0 0 16px !important;
+        border-bottom: 1px solid var(--border) !important;
+    }
+
+    .account-actions .theme-toggle {
+        width: 43px !important;
+        height: 43px !important;
+        min-height: 43px !important;
+        flex: 0 0 43px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .account-actions #loginButton {
+        min-height: 43px !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center !important;
+    }
+
+    .account-actions .account-avatar-button {
+        width: 43px !important;
+        height: 43px !important;
+        min-height: 43px !important;
+        flex: 0 0 43px !important;
+        margin-left: auto !important;
+    }
+
+    .account-actions .profile-button {
+        display: none !important;
+    }
+
+    .account-dropdown {
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        right: 0 !important;
+        left: auto !important;
+        width: min(280px, calc(86vw - 32px)) !important;
+        z-index: 1300 !important;
+    }
+
+    /* Enlaces del panel */
+
+    .sidebar-navigation {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 7px !important;
+        text-align: left !important;
+    }
+
+    .sidebar-navigation a {
+        width: 100% !important;
+        min-height: 48px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 13px !important;
+        padding: 0 13px !important;
+        font-size: 14px !important;
+        text-align: left !important;
+    }
+
+    /* Contenido principal */
+
+    main,
+    .footer {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .container {
+        width: min(100% - 32px, 680px);
+    }
+
+    .hero,
+    .section,
+    .stats-section,
+    .cta-section {
         width: 100%;
-        justify-content: center;
-        padding-bottom: 12px;
     }
 
-    .profile-button {
-        padding: 9px 12px;
-        font-size: 11px;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-        padding: 22px 5%;
-        background: var(--bg-secondary);
-        border-bottom: 1px solid var(--border);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        font-size: 13px;
-    }
+    /* Portada */
 
     .hero-content {
+        min-height: auto;
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 35px;
         padding-top: 65px;
         padding-bottom: 55px;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
     }
 
     .hero h1 {
         max-width: 500px;
         margin: 20px auto;
-        font-size: 45px;
+        font-size: clamp(37px, 7vw, 48px);
         letter-spacing: -2px;
     }
 
@@ -1734,8 +2513,10 @@ body.light-mode .game-option.wrong-answer {
         font-size: 10px;
     }
 
+    /* Estadísticas */
+
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 25px 10px;
     }
 
@@ -1754,6 +2535,8 @@ body.light-mode .game-option.wrong-answer {
     .stat-item p {
         font-size: 10px;
     }
+
+    /* Secciones */
 
     .section {
         padding: 70px 0;
@@ -1788,6 +2571,10 @@ body.light-mode .game-option.wrong-answer {
         padding: 19px;
     }
 
+    .about-content {
+        gap: 30px;
+    }
+
     .about-image img {
         height: 280px;
     }
@@ -1795,6 +2582,8 @@ body.light-mode .game-option.wrong-answer {
     .about-badge {
         right: 8px;
     }
+
+    /* Llamado a la acción y pie */
 
     .cta-content {
         flex-direction: column;
@@ -1810,8 +2599,10 @@ body.light-mode .game-option.wrong-answer {
         text-align: left;
     }
 
+    /* Panel de usuario y juegos */
+
     .dashboard-stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .game-area {
@@ -1835,6 +2626,8 @@ body.light-mode .game-option.wrong-answer {
         font-size: 22px;
     }
 
+    /* Ventanas */
+
     .topic-modal {
         padding: 15px;
     }
@@ -1842,22 +2635,48 @@ body.light-mode .game-option.wrong-answer {
     .topic-modal-content {
         padding: 35px 25px;
     }
+
+    .account-dropdown {
+        width: min(280px, calc(86vw - 32px));
+    }
+
+    .avatar-gallery {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .avatar-option {
+        font-size: 21px;
+    }
+
+    .avatar-modal-box {
+        padding: 30px 22px;
+    }
 }
 
-/* 24. CELULARES PEQUEÑOS */
+/* 30. CELULARES PEQUEÑOS */
 
 @media (max-width: 380px) {
     .container {
         width: 92%;
     }
 
-    .logo {
-        font-size: 15px;
+    .navbar.container {
+        padding-inline: 12px !important;
     }
 
-    .profile-button {
-        padding: 8px;
-        font-size: 10px;
+    .navbar .logo {
+        font-size: 16px;
+    }
+
+    .nav-links,
+    #navLinks {
+        width: min(285px, 88vw) !important;
+        padding-inline: 14px !important;
+    }
+
+    .sidebar-controls > .download-button {
+        font-size: 12px;
     }
 
     .hero h1 {
@@ -1915,384 +2734,9 @@ body.light-mode .game-option.wrong-answer {
     .dashboard-stat strong {
         font-size: 18px;
     }
-}
-
-/* ======================================================
-   25. MENÚ DE CUENTA Y FOTO DE PERFIL
-====================================================== */
-
-.account-actions {
-    position: relative;
-}
-
-.account-avatar-button {
-    width: 43px;
-    height: 43px;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    padding: 0;
-    color: white;
-    background: var(--surface);
-    border: 2px solid var(--turquoise);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.account-avatar-button:hover {
-    transform: scale(1.06);
-    box-shadow: 0 0 15px rgba(0, 194, 168, .3);
-}
-
-.account-avatar-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.account-avatar-button span {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100%;
-    font-size: 18px;
-    color: var(--turquoise);
-}
-
-/* Menú desplegable */
-
-.account-dropdown {
-    position: absolute;
-    top: calc(100% + 14px);
-    right: 0;
-    z-index: 500;
-    width: 290px;
-    padding: 12px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, .4);
-    animation: accountMenuAppear .2s ease;
-}
-
-@keyframes accountMenuAppear {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.account-dropdown-header {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding: 13px 12px 16px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 7px;
-    overflow: hidden;
-}
-
-.account-dropdown-header strong {
-    color: var(--white);
-    font-size: 14px;
-    overflow-wrap: anywhere;
-}
-
-.account-dropdown-header span {
-    color: var(--muted);
-    font-size: 11px;
-    overflow-wrap: anywhere;
-}
-
-.account-dropdown > button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px;
-    color: var(--white);
-    background: transparent;
-    border: 0;
-    border-radius: 9px;
-    text-align: left;
-    font-size: 12px;
-    font-weight: 600;
-    transition: .2s;
-    appearance: none;
-    font-family: inherit;
-    cursor: pointer;
-}
-
-.account-dropdown > button:hover {
-    color: var(--turquoise);
-    background: rgba(0, 194, 168, .09);
-}
-
-.account-dropdown > button i {
-    width: 18px;
-    color: var(--turquoise);
-    text-align: center;
-    font-size: 15px;
-}
-
-.account-dropdown-divider {
-    height: 1px;
-    margin: 8px 4px;
-    background: var(--border);
-}
-
-.account-dropdown > .logout-menu-button {
-    color: #FF8585;
-}
-
-.account-dropdown > .logout-menu-button i {
-    color: #FF8585;
-}
-
-.account-dropdown > .logout-menu-button:hover {
-    color: #FF6B6B;
-    background: rgba(255, 80, 80, .09);
-}
-
-/* ======================================================
-   26. MODAL DE AVATARES
-====================================================== */
-
-.avatar-modal-box {
-    width: min(520px, 100%);
-}
-
-.avatar-modal-box > h2 {
-    margin-top: 12px;
-}
-
-.avatar-modal-box > h3 {
-    margin: 23px 0 14px;
-    font-size: 15px;
-}
-
-.avatar-preview {
-    width: 105px;
-    height: 105px;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    margin: 22px auto;
-    color: var(--turquoise);
-    background: var(--surface);
-    border: 3px solid var(--turquoise);
-    border-radius: 50%;
-    box-shadow: 0 0 25px rgba(0, 194, 168, .16);
-}
-
-.avatar-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.avatar-preview span {
-    font-size: 38px;
-}
-
-.avatar-gallery {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    margin: 18px 0 25px;
-}
-
-.avatar-option {
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-    color: var(--turquoise);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    font-size: 22px;
-    transition: .2s;
-}
-
-.avatar-option:hover {
-    transform: translateY(-3px);
-    border-color: var(--turquoise);
-    background: rgba(0, 194, 168, .1);
-}
-
-.avatar-option.selected {
-    color: white;
-    background: rgba(0, 194, 168, .2);
-    border: 2px solid var(--turquoise);
-    box-shadow: 0 0 12px rgba(0, 194, 168, .2);
-}
-
-.avatar-upload-area {
-    padding: 18px;
-    margin-bottom: 17px;
-    background: var(--surface);
-    border: 1px dashed rgba(0, 194, 168, .45);
-    border-radius: 12px;
-}
-
-.avatar-upload-area label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--turquoise);
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.avatar-upload-area label:hover {
-    color: var(--white);
-}
-
-.avatar-upload-area label i {
-    font-size: 19px;
-}
-
-.avatar-upload-area p {
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: 10px;
-    text-align: center;
-}
-
-.avatar-modal-box > .btn {
-    width: 100%;
-}
-
-/* ======================================================
-   27. MODAL DE DATOS DE CUENTA
-====================================================== */
-
-.account-details-content {
-    display: grid;
-    gap: 12px;
-    margin-top: 25px;
-    text-align: left;
-}
-
-.account-details-content > div {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 15px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-}
-
-.account-details-content span {
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.account-details-content strong {
-    color: var(--white);
-    font-size: 13px;
-    overflow-wrap: anywhere;
-}
-
-/* ======================================================
-   28. MODAL DE PERSONALIZACIÓN DE EXPERIENCIA
-====================================================== */
-
-.experience-options {
-    display: grid;
-    gap: 12px;
-    margin: 25px 0;
-}
-
-.experience-options label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 15px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: left;
-}
-
-.experience-options label > span {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.experience-options strong {
-    color: var(--white);
-    font-size: 12px;
-}
-
-.experience-options small {
-    margin: 0;
-    color: var(--muted);
-    font-size: 10px;
-}
-
-.experience-options input {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    accent-color: var(--turquoise);
-    cursor: pointer;
-}
-
-#saveExperienceButton {
-    width: 100%;
-}
-
-/* ======================================================
-   29. ADAPTACIÓN DEL MENÚ Y AVATARES A CELULARES
-====================================================== */
-
-@media (max-width: 760px) {
-    .account-actions {
-        position: relative;
-    }
 
     .account-dropdown {
-        top: calc(100% + 8px);
-        right: 0;
-        width: min(310px, calc(100vw - 30px));
-    }
-
-    .account-avatar-button {
-        width: 40px;
-        height: 40px;
-    }
-
-    .avatar-gallery {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
-    }
-
-    .avatar-option {
-        font-size: 21px;
-    }
-
-    .avatar-modal-box {
-        padding: 30px 22px;
-    }
-}
-
-@media (max-width: 380px) {
-    .account-dropdown {
-        width: min(290px, calc(100vw - 20px));
+        width: min(270px, calc(88vw - 28px));
     }
 
     .avatar-gallery {
@@ -2308,38 +2752,7 @@ body.light-mode .game-option.wrong-answer {
     }
 }
 
-/* ======================================================
-   30. CORRECCIÓN VISUAL DEL MENÚ DE CUENTA
-====================================================== */
-
-.account-dropdown[hidden],
-.account-avatar-button[hidden],
-.account-avatar-button img[hidden],
-.account-avatar-button span[hidden] {
-    display: none !important;
-}
-
-.account-dropdown:not([hidden]) {
-    display: block !important;
-}
-
-.account-dropdown > button:focus-visible,
-.account-avatar-button:focus-visible {
-    outline: 2px solid var(--turquoise);
-    outline-offset: 3px;
-}
-
-.account-dropdown-header strong {
-    color: var(--white);
-}
-
-.account-dropdown-header span {
-    color: var(--muted);
-}
-
-/* ======================================================
-   31. CONTROL GENERAL DE ANIMACIONES
-====================================================== */
+/* 31. ANIMACIONES Y ACCESIBILIDAD */
 
 html.animations-disabled,
 html.animations-disabled *,
@@ -2371,132 +2784,6 @@ body.animations-disabled .account-avatar-button:hover {
     transform: none !important;
 }
 
-/* ======================================================
-   32. ACCESIBILIDAD Y DETALLES FINALES
-====================================================== */
-
-::selection {
-    color: #FFFFFF;
-    background: #087F75;
-}
-
-body.light-mode .account-dropdown {
-    box-shadow: 0 18px 45px rgba(20, 36, 59, .16);
-}
-
-body.light-mode .account-avatar-button {
-    color: var(--white);
-}
-
-body.light-mode .game-option {
-    color: var(--white);
-}
-
-body.light-mode .game-area {
-    background: var(--bg-secondary);
-}
-
-/* ======================================================
-   33. AJUSTES FINALES PARA LOS NUEVE JUEGOS
-====================================================== */
-
-/* Mantener las tarjetas con alturas uniformes */
-
-.games-grid .game-card {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-.games-grid .game-card p {
-    flex-grow: 1;
-}
-
-/* Evitar desbordamientos en preguntas largas */
-
-.game-area,
-.game-area * {
-    overflow-wrap: break-word;
-}
-
-.game-area button {
-    font-family: inherit;
-}
-
-/* Mejorar la lectura de las respuestas */
-
-.game-options .game-option {
-    line-height: 1.5;
-}
-
-/* Estado de respuesta correcta */
-
-.game-option.correct,
-.game-option.correct-answer {
-    border-width: 1px;
-    box-shadow: 0 0 12px rgba(34, 197, 94, .08);
-}
-
-/* Estado de respuesta incorrecta */
-
-.game-option.incorrect,
-.game-option.wrong-answer {
-    border-width: 1px;
-    box-shadow: 0 0 12px rgba(255, 100, 100, .08);
-}
-
-/* Botones de continuar y repetir */
-
-.game-area .btn {
-    margin-top: 10px;
-}
-
-.game-area .btn-primary {
-    min-width: 145px;
-}
-
-/* Indicadores de puntuación */
-
-.game-score,
-.game-xp {
-    color: var(--turquoise);
-    font-weight: 800;
-}
-
-/* Ajuste del desafío contrarreloj */
-
-.game-timer {
-    font-variant-numeric: tabular-nums;
-}
-
-.game-timer strong {
-    font-weight: 800;
-}
-
-/* Evitar que las ventanas superen la pantalla */
-
-.modal-box,
-.auth-box,
-.topic-modal-content {
-    scrollbar-width: thin;
-    scrollbar-color: var(--turquoise) transparent;
-}
-
-.modal-box::-webkit-scrollbar,
-.auth-box::-webkit-scrollbar,
-.topic-modal-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.modal-box::-webkit-scrollbar-thumb,
-.auth-box::-webkit-scrollbar-thumb,
-.topic-modal-content::-webkit-scrollbar-thumb {
-    background: var(--turquoise);
-    border-radius: 10px;
-}
-
-/* Reducir movimiento si el dispositivo lo solicita */
-
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -2508,549 +2795,606 @@ body.light-mode .game-area {
     }
 }
 
-/* ======================================================
-   FIN DE LA HOJA DE ESTILOS
-   CIBERGUARD
-====================================================== */
-/* ======================================================
-   CIBERGUARD - OPTIMIZACIÓN EXCLUSIVA PARA CELULARES
-   No modifica el diseño de PC ni laptop
-====================================================== */
+/* 32. AJUSTES FINALES */
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
+    .header,
+    .navbar,
+    .navbar.container,
+    .mobile-header-top {
+        perspective: none !important;
+        contain: none !important;
+    }
+}
 
-    /* ENCABEZADO */
+@media (min-width: 769px) {
+    .sidebar-backdrop,
+    #sidebarBackdrop {
+        display: none !important;
+    }
+}
 
-    .navbar {
-        position: relative;
-        min-height: 68px;
-        flex-wrap: nowrap;
-        gap: 8px;
+/* =========================================================
+   FIN DE LA HOJA DE ESTILOS — CIBERGUARD
+   ========================================================= */
+/* Ocultar iniciar sesión cuando el usuario ya está autenticado */
+#loginButton[hidden] {
+    display: none !important;
+}
+/* ==================================================
+   CIBERGUARD - PORTADA DE BIENVENIDA
+================================================== */
+
+html.browser-entry body > :not(#welcomeScreen) {
+    display: none !important;
+}
+
+.welcome-screen {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px;
+    background:
+        radial-gradient(ellipse at 50% 20%, rgba(0,200,193,.13), transparent 55%),
+        #0B1220;
+    color: #F4F8FC;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+html.browser-entry .welcome-screen {
+    display: flex;
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 720px;
+    margin: auto;
+}
+
+.welcome-icon {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(0,200,193,.4);
+    border-radius: 26px;
+    background: rgba(0,200,193,.09);
+    color: #00C8C1;
+    font-size: 42px;
+    box-shadow: 0 0 55px rgba(0,200,193,.12);
+}
+
+.welcome-label {
+    color: #00C8C1;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.welcome-content h1 {
+    margin: 18px 0;
+    font-size: clamp(32px, 6vw, 54px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.welcome-content h1 span {
+    color: #00C8C1;
+}
+
+.welcome-description {
+    max-width: 550px;
+    margin: 0 auto;
+    color: #AAB9CC;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.welcome-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 360px;
+    margin: 38px auto 0;
+}
+
+.welcome-button {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    padding: 14px 20px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.welcome-button.primary {
+    background: #00C8C1;
+    color: #07131E;
+}
+
+.welcome-button.primary:hover {
+    background: #35E2D9;
+    transform: translateY(-2px);
+}
+
+.welcome-button.windows {
+    background: #14243B;
+    border-color: #263B55;
+    color: #8FA2B9;
+    cursor: not-allowed;
+}
+
+.welcome-button.secondary {
+    background: transparent;
+    border-color: #34465E;
+    color: #EAF1F8;
+}
+
+.welcome-button.secondary:hover {
+    border-color: #00C8C1;
+    color: #00C8C1;
+}
+
+.welcome-footer {
+    margin-top: 55px;
+    color: #687B91;
+    font-size: 11px;
+    letter-spacing: .5px;
+}
+
+@media (max-width: 480px) {
+    .welcome-screen {
+        padding: 25px 22px;
     }
 
-    .logo {
-        font-size: 16px;
-        gap: 7px;
-        flex-shrink: 0;
+    .welcome-icon {
+        width: 76px;
+        height: 76px;
+        font-size: 35px;
     }
 
-    .logo-icon {
-        width: 35px;
-        height: 35px;
-        border-radius: 10px;
-    }
-
-    .menu-toggle {
-        order: 3;
-        margin-left: 0;
-        padding: 7px;
-        font-size: 21px;
-        flex-shrink: 0;
-    }
-
-    /* BOTONES DE CUENTA */
-
-    .account-actions {
-        order: 2;
-        width: auto;
-        padding: 0;
-        margin-left: auto;
-        justify-content: flex-end;
-        gap: 6px;
-        flex-shrink: 0;
-    }
-
-    .profile-button {
-        width: 35px;
-        height: 35px;
-        padding: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0;
-        border-radius: 9px;
-    }
-
-    .profile-button i {
+    .welcome-description {
         font-size: 14px;
     }
+}
 
-    .theme-toggle,
-    .account-avatar-button {
-        width: 35px;
-        height: 35px;
-        flex-shrink: 0;
+/* ==========================================
+   CIBERGUARD - ACABADO VISUAL DE LA PORTADA
+========================================== */
+
+html.browser-entry,
+html.browser-entry body {
+    min-height: 100%;
+    margin: 0;
+}
+
+html.browser-entry body {
+    min-height: 100vh;
+}
+
+html.browser-entry body > #welcomeScreen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 35px 22px;
+}
+
+html.browser-entry .welcome-content {
+    width: min(100%, 720px);
+    margin: auto;
+    animation: welcomeAppear .9s ease both;
+}
+
+.welcome-icon {
+    animation: shieldFloat 4s ease-in-out infinite;
+}
+
+.welcome-label {
+    animation: welcomeSlide .8s .1s ease both;
+}
+
+.welcome-content h1 {
+    animation: welcomeSlide .8s .2s ease both;
+}
+
+.welcome-description {
+    animation: welcomeSlide .8s .3s ease both;
+}
+
+.welcome-actions {
+    animation: welcomeSlide .8s .4s ease both;
+}
+
+.welcome-footer {
+    animation: welcomeAppear 1s .6s ease both;
+}
+
+.welcome-button {
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease,
+                background .25s ease, border-color .25s ease;
+}
+
+.welcome-button.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,200,193,.25);
+}
+
+.welcome-button.secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,200,193,.10);
+}
+
+.welcome-button i {
+    transition: transform .25s ease;
+}
+
+.welcome-button:hover i {
+    transform: scale(1.12);
+}
+
+@keyframes welcomeAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes welcomeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shieldFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@media (max-width: 480px) {
+    html.browser-entry body > #welcomeScreen {
+        padding: 25px 20px;
     }
 
-    /* MENÚ DE NAVEGACIÓN */
-
-    .nav-links {
-        z-index: 200;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-        padding: 18px 22px;
-        gap: 15px;
-        border-radius: 0 0 12px 12px;
-        box-shadow: 0 12px 25px rgba(0, 0, 0, .25);
-    }
-
-    .nav-links a {
-        width: 100%;
-        padding: 7px 0;
-        font-size: 13px;
-    }
-
-    /* PORTADA */
-
-    .hero-content {
-        min-height: auto;
-        gap: 25px;
-        padding-top: 45px;
-        padding-bottom: 40px;
-    }
-
-    .hero h1 {
-        font-size: clamp(34px, 9vw, 43px);
-        line-height: 1.12;
-        letter-spacing: -1.5px;
-    }
-
-    .hero-text > p {
-        max-width: 100%;
-        font-size: 13px;
+    .welcome-footer {
+        margin-top: 35px;
         line-height: 1.7;
     }
-
-    .section-tag {
-        font-size: 9px;
-        letter-spacing: 1px;
-    }
-
-    .hero-buttons {
-        width: 100%;
-        gap: 10px;
-    }
-
-    .hero-buttons .btn {
-        flex: 1;
-        min-width: 0;
-        padding: 11px 12px;
-        font-size: 11px;
-    }
-
-    .hero-features {
-        gap: 12px;
-    }
-
-    .hero-visual {
-        min-height: 280px;
-        margin-top: 5px;
-    }
-
-    .security-circle {
-        width: 205px;
-        height: 205px;
-    }
-
-    .main-shield {
-        width: 130px;
-        height: 130px;
-    }
-
-    .floating-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 14px;
-        border-radius: 11px;
-    }
-
-    .icon-one {
-        left: -8px;
-    }
-
-    .icon-two {
-        right: -8px;
-    }
-
-    .security-message {
-        max-width: 90%;
-        justify-content: center;
-        text-align: center;
-        padding: 10px 13px;
-        font-size: 10px;
-    }
-
-    /* ESTADÍSTICAS */
-
-    .stats-section {
-        padding: 23px 0;
-    }
-
-    .stats-grid {
-        gap: 22px 12px;
-    }
-
-    .stat-item {
-        gap: 9px;
-        min-width: 0;
-    }
-
-    .stat-item > i {
-        font-size: 19px;
-    }
-
-    .stat-item h3 {
-        font-size: 13px;
-    }
-
-    .stat-item p {
-        font-size: 9px;
-        line-height: 1.4;
-    }
-
-    /* SECCIONES */
-
-    .section {
-        padding: 55px 0;
-    }
-
-    .section-heading {
-        margin-bottom: 28px;
-    }
-
-    .section-heading h2 {
-        font-size: clamp(24px, 7vw, 30px);
-        line-height: 1.2;
-        letter-spacing: -.6px;
-    }
-
-    .section-heading p {
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    /* BUSCADOR */
-
-    .search-row {
-        width: 100%;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .search-row input {
-        width: 100%;
-        min-width: 0;
-        font-size: 12px;
-    }
-
-    /* TARJETAS */
-
-    .learning-grid,
-    .video-grid,
-    .games-grid,
-    .profiles-grid,
-    .content-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
-    }
-
-    .learning-card,
-    .video-card,
-    .game-card,
-    .profile-card {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .learning-card > img {
-        width: 100%;
-        height: 190px;
-        object-fit: cover;
-    }
-
-    .card-content {
-        padding: 18px;
-    }
-
-    .card-content h3 {
-        font-size: 17px;
-        line-height: 1.4;
-    }
-
-    .card-content p {
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    .video-image img {
-        width: 100%;
-        height: 190px;
-        object-fit: cover;
-    }
-
-    /* CONTENIDO EDUCATIVO */
-
-    .content-item {
-        width: 100%;
-        padding: 17px;
-        gap: 13px;
-    }
-
-    .content-item h3 {
-        font-size: 15px;
-    }
-
-    .content-item p {
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    /* JUEGOS */
-
-    .game-area {
-        width: 100%;
-        padding: 16px;
-        border-radius: 13px;
-    }
-
-    .game-area-header h3 {
-        font-size: 16px;
-    }
-
-    .question-text {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .game-options {
-        gap: 10px;
-    }
-
-    .game-option {
-        width: 100%;
-        min-height: 45px;
-        padding: 12px;
-        font-size: 12px;
-        text-align: left;
-        line-height: 1.5;
-    }
-
-    .game-area .btn {
-        max-width: 100%;
-        min-height: 43px;
-        padding: 11px 15px;
-        font-size: 12px;
-    }
-
-    /* VENTANAS EMERGENTES */
-
-    .topic-modal {
-        padding: 10px;
-        align-items: center;
-    }
-
-    .topic-modal-content,
-    .modal-box,
-    .auth-box {
-        width: 100%;
-        max-width: 100%;
-        max-height: 88vh;
-        overflow-y: auto;
-        padding: 23px 17px;
-        border-radius: 15px;
-    }
-
-    .avatar-modal-box {
-        width: 100%;
-        max-width: 100%;
-        padding: 23px 16px;
-    }
-
-    /* MENÚ DE CUENTA */
-
-    .account-dropdown {
-        z-index: 300;
-        right: 0;
-        width: min(290px, calc(100vw - 25px));
-        max-height: 75vh;
-        overflow-y: auto;
-    }
-
-    /* FORMULARIOS */
-
-    input,
-    select,
-    textarea {
-        max-width: 100%;
-        font-size: 14px;
-    }
-
-    /* BOTONES */
-
-    .btn {
-        min-height: 43px;
-        padding: 11px 15px;
-        font-size: 12px;
-    }
-
-    /* PIE DE PÁGINA */
-
-    .footer-content {
-        gap: 20px;
-    }
-
-    .footer-credit {
-        font-size: 11px;
-        line-height: 1.6;
-    }
-
-    /* EVITAR DESBORDAMIENTO */
-
-    body,
-    main,
-    section,
-    .container {
-        max-width: 100%;
-    }
-
-    img {
-        height: auto;
-    }
-
 }
 
-/* CELULARES MUY PEQUEÑOS */
-
-@media (max-width: 380px) {
-
-    .container {
-        width: 92%;
+@media (prefers-reduced-motion: reduce) {
+    .welcome-content,
+    .welcome-icon,
+    .welcome-label,
+    .welcome-content h1,
+    .welcome-description,
+    .welcome-actions,
+    .welcome-footer {
+        animation: none !important;
     }
 
-    .navbar {
-        gap: 5px;
+    .welcome-button {
+        transition: none !important;
     }
-
-    .logo {
-        font-size: 14px;
-        gap: 5px;
-    }
-
-    .logo-icon {
-        width: 31px;
-        height: 31px;
-    }
-
-    .account-actions {
-        gap: 4px;
-    }
-
-    .profile-button,
-    .theme-toggle,
-    .account-avatar-button {
-        width: 31px;
-        height: 31px;
-    }
-
-    .menu-toggle {
-        font-size: 19px;
-        padding: 5px;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
-    }
-
-    .security-circle {
-        width: 185px;
-        height: 185px;
-    }
-
-    .main-shield {
-        width: 115px;
-        height: 115px;
-    }
-
-    .section-heading h2 {
-        font-size: 24px;
-    }
-
-}
-/* =========================================
-   SECCIÓN DE DESCARGA DE CIBERGUARD
-========================================= */
-
-.download-section {
-    width: 100%;
-    padding: 45px 20px;
-    margin: 35px auto 0;
-    text-align: center;
-    background: linear-gradient(135deg, #071b32, #0b3150);
-    border-top: 1px solid rgba(0, 200, 255, 0.3);
 }
 
-.download-section h2 {
-    color: #ffffff;
-    font-size: 28px;
-    margin-bottom: 12px;
+
+/* ==========================================
+   CIBERGUARD - FONDO TECNOLÓGICO PREMIUM
+========================================== */
+
+html.browser-entry body > #welcomeScreen {
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at 50% 45%,
+            rgba(0, 200, 193, .13) 0%,
+            transparent 42%),
+        radial-gradient(ellipse at 12% 15%,
+            rgba(20, 95, 180, .22) 0%,
+            transparent 38%),
+        radial-gradient(ellipse at 88% 85%,
+            rgba(0, 130, 160, .16) 0%,
+            transparent 40%),
+        linear-gradient(135deg,
+            #070D19 0%,
+            #0B1729 48%,
+            #07111F 100%);
 }
 
-.download-section p {
-    color: #b8d9ed;
-    font-size: 15px;
-    margin-bottom: 22px;
+html.browser-entry body > #welcomeScreen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .20;
+    background-image:
+        linear-gradient(rgba(0, 200, 193, .10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 193, .10) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 10%, transparent 78%);
 }
 
-.download-button {
-    display: inline-block;
-    padding: 15px 28px;
-    background: #00c8ff;
-    color: #001522;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 10px;
-    transition: 0.25s ease;
-    box-shadow: 0 0 18px rgba(0, 200, 255, 0.25);
+html.browser-entry body > #welcomeScreen::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: min(75vw, 720px);
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 200, 193, .10);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 55px rgba(0, 200, 193, .025),
+        0 0 0 110px rgba(0, 200, 193, .018),
+        0 0 90px rgba(0, 200, 193, .08);
+    pointer-events: none;
+    animation: ambientPulse 7s ease-in-out infinite;
 }
 
-.download-button:hover {
-    background: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(0, 200, 255, 0.5);
+.welcome-icon {
+    position: relative;
+    background: linear-gradient(145deg,
+        rgba(0, 200, 193, .18),
+        rgba(20, 50, 80, .75));
+    border: 1px solid rgba(0, 220, 210, .55);
+    box-shadow:
+        0 0 25px rgba(0, 200, 193, .20),
+        0 0 65px rgba(0, 200, 193, .12),
+        inset 0 0 25px rgba(0, 200, 193, .08);
 }
 
-.download-section .download-version {
-    margin-top: 18px;
-    margin-bottom: 0;
-    font-size: 12px;
-    color: #8caec2;
+.welcome-content h1 {
+    text-shadow: 0 5px 35px rgba(0, 0, 0, .35);
+}
+
+.welcome-content h1 span {
+    text-shadow: 0 0 30px rgba(0, 200, 193, .22);
+}
+
+.welcome-button.primary {
+    box-shadow: 0 5px 25px rgba(0, 200, 193, .16);
+}
+
+@keyframes ambientPulse {
+    0%, 100% {
+        opacity: .55;
+        scale: .96;
+    }
+    50% {
+        opacity: 1;
+        scale: 1.04;
+    }
 }
 
 @media (max-width: 600px) {
-    .download-section {
-        padding: 35px 15px;
+    html.browser-entry body > #welcomeScreen::after {
+        width: 110vw;
     }
 
-    .download-section h2 {
-        font-size: 23px;
-    }
-
-    .download-button {
-        width: 100%;
-        max-width: 320px;
-        padding: 15px 12px;
+    html.browser-entry body > #welcomeScreen::before {
+        background-size: 35px 35px;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    html.browser-entry body > #welcomeScreen::after {
+        animation: none;
+    }
+}
+
+
+
+
+
+
+
+/* CORRECCION DE POSICION DEL MODAL DE AVATARES */
+#avatarModal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+#avatarModal .avatar-modal-box {
+    width: min(520px, 100%);
+    max-width: 100%;
+    max-height: calc(100vh - 32px);
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+/* AJUSTE DEL MENU DE CUENTA EN PANTALLAS PEQUENAS */
+@media (max-width: 768px) {
+    #accountDropdown {
+        position: fixed !important;
+        top: 125px !important;
+        left: 16px !important;
+        right: auto !important;
+        width: min(280px, calc(100vw - 32px)) !important;
+        max-width: calc(100vw - 32px) !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+    }
+}
+
+
+/* AJUSTE DEFINITIVO DEL ANCHO DEL MENU MOVIL */
+@media (max-width: 768px) {
+    .nav-links,
+    #navLinks {
+        width: min(320px, 88vw) !important;
+        min-width: min(320px, 88vw) !important;
+        max-width: min(320px, 88vw) !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* CIBERGUARD - CORRECCION FINAL DEL PANEL LATERAL MOVIL */
+@media screen and (max-width: 768px) {
+    body {
+        padding-left: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    .header {
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    .nav-links,
+    #navLinks {
+        position: fixed !important;
+        top: 68px !important;
+        left: 0 !important;
+        right: auto !important;
+        bottom: 0 !important;
+        width: 300px !important;
+        min-width: 0 !important;
+        max-width: 86vw !important;
+        height: calc(100dvh - 68px) !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        border-radius: 0 14px 14px 0 !important;
+        transform: translateX(-105%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: 1201 !important;
+    }
+
+    .nav-links.active,
+    #navLinks.active {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* CIBERGUARD - REESTRUCTURACION FINAL DE NAVEGACION MOVIL */
+@media screen and (max-width: 768px) {
+
+    .header {
+        position: sticky !important;
+        inset: 0 0 auto 0 !important;
+        width: 100% !important;
+        height: 68px !important;
+        min-height: 68px !important;
+        overflow: visible !important;
+        z-index: 1200 !important;
+    }
+
+    .navbar.container {
+        width: 100% !important;
+        height: 68px !important;
+        padding: 10px 16px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .nav-links,
+    #navLinks {
+        position: fixed !important;
+        inset: 68px auto 0 0 !important;
+        width: 285px !important;
+        max-width: 86vw !important;
+        height: calc(100dvh - 68px) !important;
+        padding: 20px 16px 30px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        background: var(--bg-secondary) !important;
+        border-right: 1px solid var(--border) !important;
+        border-radius: 0 14px 14px 0 !important;
+        transform: translateX(-110%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: 1201 !important;
+    }
+
+    .nav-links.active,
+    #navLinks.active {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    .sidebar-controls,
+    .sidebar-navigation {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+/* CIBERGUARD - CORRECCION DEFINITIVA DEL MENU DE CUENTA */
+#accountDropdown.account-dropdown {
+    position: fixed !important;
+    top: 85px !important;
+    left: auto !important;
+    right: 20px !important;
+    width: 290px !important;
+    max-width: calc(100vw - 32px) !important;
+    max-height: calc(100vh - 110px) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    z-index: 99999 !important;
+    transform: none !important;
+}
+
+@media (max-width: 768px) {
+    #accountDropdown.account-dropdown {
+        top: 78px !important;
+        left: 12px !important;
+        right: 12px !important;
+        width: auto !important;
+        max-width: none !important;
+        max-height: calc(100dvh - 94px) !important;
+        border-radius: 14px !important;
+    }
+}
+
